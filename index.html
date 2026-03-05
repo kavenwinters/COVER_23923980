@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Superbad DVD Menu</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #f27200; /* Superbad Orange */
+      overflow: hidden; /* Keeps the screen locked like a real DVD menu */
+      font-family: 'Arial Black', Impact, sans-serif;
+    }
+
+    /* SVG Background that handles the curves perfectly */
+    .bg-stripes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1;
+    }
+
+    /* Container for the menu buttons */
+    .menu-item {
+      position: absolute;
+      right: 0;
+      width: 50vw; /* Takes up the right half of the screen */
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 12vw; /* Adjust this to move text left or right */
+      z-index: 2;
+    }
+
+    .menu-item a {
+      text-decoration: none;
+      font-size: 3vh; /* Scales beautifully with screen height */
+      font-weight: 900;
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      transition: transform 0.15s ease-in-out;
+    }
+
+    /* Adds a nice DVD-style hover pop */
+    .menu-item a:hover {
+      transform: scale(1.05) translateX(-5px);
+    }
+
+    /* Exact Text Colors from the Menu */
+    .text-white { color: #ffffff; }
+    .text-blue  { color: #0b2158; }
+    .text-purple{ color: #94569a; }
+    .text-brown { color: #b26558; }
+    .text-green { color: #75b785; }
+
+    /* The orange block next to PLAY MOVIE */
+    .orange-block {
+      display: inline-block;
+      width: 1.5vh;
+      height: 3vh;
+      background-color: #f27200;
+      margin-left: 12px;
+    }
+
+    /* Placeholder for your dancing video later */
+    .video-container {
+      position: absolute;
+      top: 15%;
+      left: 20%;
+      height: 60vh;
+      z-index: 5;
+    }
+  </style>
+</head>
+<body>
+
+  <svg class="bg-stripes" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+    <path d="M 0,500 Q 300,800 400,800 L 1000,800 L 1000,1000 L 0,1000 Z" fill="#c93f8e"/>
+    
+    <g fill="none" stroke-width="50">
+       <path d="M -50,325 Q 250,625 400,625 L 1050,625" stroke="#8c1025" />
+       <path d="M -50,375 Q 250,675 400,675 L 1050,675" stroke="#e6d649" />
+       <path d="M -50,425 Q 250,725 400,725 L 1050,725" stroke="#179e40" />
+       <path d="M -50,475 Q 250,775 400,775 L 1050,775" stroke="#5eb4cd" />
+       <path d="M -50,525 Q 250,825 400,825 L 1050,825" stroke="#c93f8e" />
+    </g>
+  </svg>
+
+  <div class="menu-item" style="top: 60vh; height: 5vh;">
+    <a href="play.html" class="text-white">PLAY MOVIE<span class="orange-block"></span></a>
+  </div>
+  
+  <div class="menu-item" style="top: 65vh; height: 5vh;">
+    <a href="languages.html" class="text-blue">LANGUAGES</a>
+  </div>
+  
+  <div class="menu-item" style="top: 70vh; height: 5vh;">
+    <a href="scenes.html" class="text-purple">SCENE SELECTIONS</a>
+  </div>
+  
+  <div class="menu-item" style="top: 75vh; height: 5vh;">
+    <a href="features.html" class="text-brown">SPECIAL FEATURES</a>
+  </div>
+  
+  <div class="menu-item" style="top: 80vh; height: 5vh;">
+    <a href="previews.html" class="text-green">PREVIEWS</a>
+  </div>
+
+  <div class="video-container">
+    </div>
+
+</body>
+</html>
