@@ -5,7 +5,6 @@ function setActive(i){
   links.forEach(a => a.style.filter = "");
   links[i].style.filter = "brightness(1.08)";
 }
-
 setActive(current);
 
 window.addEventListener("keydown", (e) => {
