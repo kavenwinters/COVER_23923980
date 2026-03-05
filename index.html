@@ -4,67 +4,81 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Superbad DVD Menu</title>
-
-  <!-- NEW filename to beat GitHub Pages cache -->
-  <link rel="stylesheet" href="menu.css?v=7" />
+  <link rel="stylesheet" href="menu.css?v=9" />
 </head>
 <body>
   <main class="screen">
 
-    <!-- Bottom stack scales together -->
+    <!-- Bottom stack -->
     <section class="stack" aria-hidden="true">
-      <!-- One SVG contains ALL bands including purple + thin separator -->
-      <svg class="bands" viewBox="0 0 1600 520" preserveAspectRatio="none">
-        <!-- Background of stack area (peach) -->
-        <rect x="0" y="0" width="1600" height="520" fill="#D79788"/>
+      <!-- One SVG draws EVERYTHING (peach bg + 4 stripes + purple) -->
+      <svg class="art" viewBox="0 0 1600 520" preserveAspectRatio="none">
+        <!-- base peach behind stripes -->
+        <rect x="0" y="0" width="1600" height="520" fill="#D79A8A"/>
 
-        <!-- MAROON (thin) -->
+        <!-- Geometry notes (y):
+             maroon:  0..70
+             white:  70..150
+             green: 150..260
+             blue:  260..360
+             purple:360..520
+        -->
+
+        <!-- MAROON (smooth left bend) -->
         <path d="
-          M 0 95
-          Q 90 10 280 0
+          M 0 32
+          Q 60 0 210 0
           L 1600 0
-          L 1600 95
-          L 280 95
-          Q 90 110 0 95
-          Z" fill="#8C3E63"/>
+          L 1600 70
+          L 210 70
+          Q 60 70 0 44
+          Z"
+          fill="#8C3E63"
+        />
 
         <!-- WHITE -->
         <path d="
-          M 0 205
-          Q 105 115 305 95
-          L 1600 95
-          L 1600 205
-          L 305 205
-          Q 105 225 0 205
-          Z" fill="#D8D4D0"/>
+          M 0 92
+          Q 70 70 230 70
+          L 1600 70
+          L 1600 150
+          L 230 150
+          Q 70 150 0 120
+          Z"
+          fill="#D8D4D0"
+        />
 
-        <!-- GREEN (thicker) -->
+        <!-- GREEN -->
         <path d="
-          M 0 330
-          Q 120 230 340 205
-          L 1600 205
-          L 1600 330
-          L 340 330
-          Q 120 352 0 330
-          Z" fill="#13978F"/>
+          M 0 188
+          Q 85 150 255 150
+          L 1600 150
+          L 1600 260
+          L 255 260
+          Q 85 260 0 228
+          Z"
+          fill="#15958C"
+        />
 
-        <!-- BLUE (thicker) -->
+        <!-- BLUE -->
         <path d="
-          M 0 440
-          Q 130 360 365 330
-          L 1600 330
-          L 1600 440
-          L 0 440
-          Z" fill="#4BA5E8"/>
+          M 0 298
+          Q 95 260 275 260
+          L 1600 260
+          L 1600 360
+          L 0 360
+          Z"
+          fill="#4DA7EB"
+        />
 
-        <!-- Thin capture line between blue & purple (DVD look) -->
-        <rect x="0" y="440" width="1600" height="7" fill="#B86A91" opacity="0.55"/>
+        <!-- very subtle line between blue and purple (DVD capture vibe) -->
+        <rect x="0" y="360" width="1600" height="5" fill="#B86A91" opacity="0.35"/>
 
-        <!-- PURPLE bottom -->
-        <rect x="0" y="447" width="1600" height="73" fill="#A768C8"/>
+        <!-- PURPLE -->
+        <rect x="0" y="365" width="1600" height="155" fill="#A768C8"/>
       </svg>
 
-      <!-- Menu overlay locked to bands via grid -->
+      <!-- Menu overlay locked to stripe heights -->
       <nav class="menu" aria-label="DVD Menu">
         <a class="item play" href="play.html">PLAY MOVIE</a>
         <a class="item lang" href="languages.html">LANGUAGES</a>
@@ -77,7 +91,6 @@
     <div class="grain" aria-hidden="true"></div>
   </main>
 
-  <!-- NEW filename to beat cache -->
-  <script src="menu.js?v=7"></script>
+  <script src="menu.js?v=9"></script>
 </body>
 </html>
