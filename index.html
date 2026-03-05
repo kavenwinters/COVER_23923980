@@ -8,60 +8,62 @@
 </head>
 <body>
   <main class="screen">
+    <!-- Bottom visual stack -->
+    <section class="stack" aria-hidden="true">
+      <svg class="bands" viewBox="0 0 1600 400" preserveAspectRatio="none">
+        <!-- We draw ONLY the 4 stripes in this SVG; purple + separator are HTML blocks -->
 
-    <!-- Stripe stack anchored to bottom -->
-    <section class="stripe-stack" aria-hidden="true">
-      <!-- SVG draws ONLY the 4 colored bands with correct left bend -->
-      <svg class="stripe-svg" viewBox="0 0 1600 400" preserveAspectRatio="none">
-        <!-- band geometry uses real arcs so nothing turns into pointed lenses -->
-
-        <!-- MAROON (y: 0..70) -->
+        <!-- MAROON (thin) -->
         <path d="
           M 0 70
-          A 140 140 0 0 1 140 0
+          A 180 180 0 0 1 180 0
           L 1600 0
           L 1600 70
           Z" fill="#8C3E63" />
 
-        <!-- WHITE (y: 70..150) -->
+        <!-- WHITE (medium) -->
         <path d="
-          M 0 150
-          A 160 160 0 0 1 160 70
+          M 0 160
+          A 210 210 0 0 1 210 70
           L 1600 70
-          L 1600 150
+          L 1600 160
           Z" fill="#D8D4D0" />
 
-        <!-- GREEN (y: 150..260) -->
+        <!-- GREEN (thicker) -->
         <path d="
-          M 0 260
-          A 190 190 0 0 1 190 150
-          L 1600 150
-          L 1600 260
+          M 0 270
+          A 250 250 0 0 1 250 160
+          L 1600 160
+          L 1600 270
           Z" fill="#13978F" />
 
-        <!-- BLUE (y: 260..400) -->
+        <!-- BLUE (thicker) -->
         <path d="
           M 0 400
-          A 220 220 0 0 1 220 260
-          L 1600 260
+          A 290 290 0 0 1 290 270
+          L 1600 270
           L 1600 400
           Z" fill="#4BA5E8" />
       </svg>
 
-      <!-- Thin peach separator (DVD has a tiny peach line here) -->
-      <div class="peach-gap"></div>
+      <!-- thin line between blue and purple like the DVD capture -->
+      <div class="separator"></div>
 
-      <!-- Purple bottom area -->
+      <!-- purple area -->
       <div class="purple"></div>
     </section>
 
-    <!-- Menu locked to the 4 stripes (NO orange box) -->
+    <!-- MENU: first 4 items are locked to stripe heights via grid -->
     <nav class="menu" aria-label="DVD Menu">
-      <a class="row play" href="play.html">PLAY MOVIE</a>
-      <a class="row languages" href="languages.html">LANGUAGES</a>
-      <a class="row scene" href="scenes.html">SCENE SELECTIONS</a>
-      <a class="row features" href="features.html">SPECIAL FEATURES</a>
-      <a class="row previews" href="previews.html">PREVIEWS</a>
+      <div class="menu-stripes">
+        <a class="item play" href="play.html">PLAY MOVIE</a>
+        <a class="item lang" href="languages.html">LANGUAGES</a>
+        <a class="item scene" href="scenes.html">SCENE SELECTIONS</a>
+        <a class="item feat" href="features.html">SPECIAL FEATURES</a>
+      </div>
+
+      <!-- PREVIEWS sits in the purple region -->
+      <a class="item prev" href="previews.html">PREVIEWS</a>
     </nav>
 
     <div class="grain" aria-hidden="true"></div>
