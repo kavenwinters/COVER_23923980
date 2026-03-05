@@ -1,88 +1,77 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Superbad DVD Menu</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <main class="stage">
-      <!-- background bands -->
-      <div class="bands-wrap" aria-hidden="true">
-        <svg
-          class="bands-svg"
-          viewBox="0 0 1600 420"
-          preserveAspectRatio="none"
-        >
-          <!-- maroon -->
-          <path
-            d="M0,130
-               Q55,170 150,178
-               L1600,178
-               L1600,208
-               L150,208
-               Q52,202 0,166
-               Z"
-            fill="#8e3f63"
-          />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Superbad DVD Menu</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="screen">
 
-          <!-- white -->
-          <path
-            d="M0,166
-               Q55,202 150,208
-               L1600,208
-               L1600,236
-               L150,236
-               Q52,230 0,196
-               Z"
-            fill="#ddd8d3"
-          />
+    <!-- background stripes -->
+    <svg class="stripes" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
+      <!-- maroon -->
+      <path d="
+        M 0 585
+        Q 40 620 135 625
+        L 1440 625
+        L 1440 655
+        L 135 655
+        Q 40 650 0 615
+        Z" fill="#8f3d66"/>
 
-          <!-- teal/green -->
-          <path
-            d="M0,196
-               Q55,230 150,236
-               L1600,236
-               L1600,278
-               L150,278
-               Q52,272 0,240
-               Z"
-            fill="#15958c"
-          />
+      <!-- white -->
+      <path d="
+        M 0 615
+        Q 40 650 135 655
+        L 1440 655
+        L 1440 683
+        L 135 683
+        Q 40 678 0 645
+        Z" fill="#d9d5d0"/>
 
-          <!-- blue -->
-          <path
-            d="M0,240
-               Q55,272 150,278
-               L1600,278
-               L1600,318
-               L0,318
-               Z"
-            fill="#4aa7ea"
-          />
-        </svg>
+      <!-- teal -->
+      <path d="
+        M 0 645
+        Q 40 678 135 683
+        L 1440 683
+        L 1440 725
+        L 135 725
+        Q 40 720 0 687
+        Z" fill="#14978f"/>
 
-        <div class="purple-band"></div>
+      <!-- blue -->
+      <path d="
+        M 0 687
+        Q 40 720 135 725
+        L 1440 725
+        L 1440 765
+        L 0 765
+        Z" fill="#4da7eb"/>
+    </svg>
+
+    <!-- purple bottom strip -->
+    <div class="purple-band" aria-hidden="true"></div>
+
+    <!-- menu -->
+    <nav class="menu" aria-label="DVD Menu">
+      <a href="play.html" class="item play">PLAY MOVIE</a>
+      <a href="languages.html" class="item languages">LANGUAGES</a>
+
+      <div class="scene-row">
+        <a href="scenes.html" class="item scene">SCENE SELECTIONS</a>
+        <span class="scene-box"></span>
       </div>
 
-      <!-- menu aligned to stripe centers -->
-      <nav class="menu" aria-label="DVD Menu">
-        <a href="play.html" class="menu-link play">PLAY MOVIE</a>
-        <a href="languages.html" class="menu-link languages">LANGUAGES</a>
+      <a href="features.html" class="item features">SPECIAL FEATURES</a>
+      <a href="previews.html" class="item previews">PREVIEWS</a>
+    </nav>
 
-        <div class="scene-line">
-          <a href="scenes.html" class="menu-link scene">SCENE SELECTIONS</a>
-          <span class="scene-indicator"></span>
-        </div>
+    <!-- light texture -->
+    <div class="grain" aria-hidden="true"></div>
+  </div>
 
-        <a href="features.html" class="menu-link features">SPECIAL FEATURES</a>
-        <a href="previews.html" class="menu-link previews">PREVIEWS</a>
-      </nav>
-
-      <div class="noise"></div>
-    </main>
-
-    <script src="script.js"></script>
-  </body>
+  <script src="script.js"></script>
+</body>
 </html>
