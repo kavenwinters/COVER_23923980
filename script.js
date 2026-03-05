@@ -1,36 +1,34 @@
-// Optional: simple keyboard navigation to feel like a DVD menu.
-// Up/Down highlights items; Enter follows the link.
+const links = Array.from(document.querySelectorAll(".menu-link"));
+let current = 2; // starts on SCENE SELECTIONS like the screenshot
 
-const links = Array.from(document.querySelectorAll(".menu a.menu-item"));
-let index = 0;
-
-// Start with PLAY MOVIE highlighted (matches screenshot)
-index = Math.max(0, links.findIndex(a => a.classList.contains("is-highlight")));
-
-function clearHighlight() {
-  links.forEach(a => a.style.filter = "");
-  links.forEach(a => a.dataset.kb = "0");
+function clearActive() {
+  links.forEach((link) => {
+    link.style.filter = "";
+  });
 }
 
-function setHighlight(i) {
-  clearHighlight();
-  const a = links[i];
-  a.dataset.kb = "1";
-  a.style.filter = "brightness(1.08)";
+function setActive(index) {
+  clearActive();
+  links[index].style.filter = "brightness(1.08)";
 }
 
-setHighlight(index);
+setActive(current);
 
 window.addEventListener("keydown", (e) => {
-  if (["ArrowUp", "ArrowDown", "Enter"].includes(e.key)) e.preventDefault();
-
   if (e.key === "ArrowUp") {
-    index = (index - 1 + links.length) % links.length;
-    setHighlight(index);
-  } else if (e.key === "ArrowDown") {
-    index = (index + 1) % links.length;
-    setHighlight(index);
-  } else if (e.key === "Enter") {
-    links[index].click();
+    e.preventDefault();
+    current = (current - 1 + links.length) % links.length;
+    setActive(current);
+  }
+
+  if (e.key === "ArrowDown") {
+    e.preventDefault();
+    current = (current + 1) % links.length;
+    setActive(current);
+  }
+
+  if (e.key === "Enter") {
+    e.preventDefault();
+    links[current].click();
   }
 });
