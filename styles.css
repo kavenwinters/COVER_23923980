@@ -1,18 +1,11 @@
 :root {
-  --bg: #d79a8a;
+  --bg: #d79788;
 
-  --maroon: #8f3d66;
-  --white: #d9d5d0;
-  --teal: #14978f;
-  --blue: #4da7eb;
-  --purple: #ab69c9;
-
-  --play: #a9bef7;
-  --lang: #718cc3;
+  --play: #a8bef3;
+  --lang: #708cc2;
   --soft: #c4d0d3;
-  --dim: #c9b8d7;
-
-  --selector: #c3a295;
+  --dim: #cab8d7;
+  --selector: #c4a395;
 }
 
 * {
@@ -26,8 +19,8 @@ html, body {
 }
 
 body {
-  background: var(--bg);
   overflow: hidden;
+  background: var(--bg);
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -38,8 +31,8 @@ body {
   background: var(--bg);
 }
 
-/* stripes */
-.stripes {
+/* Background bands */
+.bands {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -47,49 +40,50 @@ body {
   display: block;
 }
 
-/* bottom purple region */
+/* Purple bottom area */
 .purple-band {
   position: absolute;
   left: 0;
   right: 0;
-  top: 765px;
+  top: 780px;              /* matches the SVG baseline */
   bottom: 0;
-  background: var(--purple);
+  background: #a768c8;
 }
 
-/* make layout scale like the screenshot */
-@media (min-aspect-ratio: 1/1) {
+/* Scale the purple band cleanly on laptop fullscreen */
+@media (min-width: 1000px) {
   .purple-band {
-    top: 85vh;
+    top: 86.7vh;
   }
 }
 
-/* MENU */
+/* Menu block */
 .menu {
   position: absolute;
-  right: 7.5%;
-  top: 68.5%;
-  width: 31%;
-  min-width: 360px;
+  right: 6.2vw;
+  top: 67.2vh;             /* hard-locked to lower-right */
+  width: 31vw;
+  min-width: 380px;
+  max-width: 520px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 0.15em;
-  z-index: 5;
+  gap: 0.12em;
+  z-index: 10;
 }
 
-.item,
-.item:visited {
+.menu-item,
+.menu-item:visited {
   text-decoration: none;
-  font-weight: 700;
   text-transform: uppercase;
-  font-size: clamp(28px, 3vw, 44px);
+  font-weight: 700;
+  font-size: clamp(24px, 2.95vw, 42px);
   line-height: 1.02;
   letter-spacing: 0.5px;
   white-space: nowrap;
   text-shadow:
-    0 1px 0 rgba(0,0,0,0.05),
-    0 0 4px rgba(60,80,120,0.12);
+    0 1px 0 rgba(0, 0, 0, 0.04),
+    0 0 3px rgba(80, 90, 120, 0.14);
 }
 
 .play {
@@ -105,14 +99,13 @@ body {
 }
 
 .features {
-  color: rgba(196, 208, 211, 0.7);
+  color: rgba(196, 208, 211, 0.72);
 }
 
 .previews {
-  color: rgba(201, 184, 215, 0.9);
+  color: rgba(202, 184, 215, 0.9);
 }
 
-/* scene row */
 .scene-row {
   display: flex;
   align-items: center;
@@ -122,55 +115,74 @@ body {
 
 .scene-box {
   width: 18px;
-  height: 38px;
+  height: 36px;
   background: var(--selector);
   border-radius: 2px;
   flex: 0 0 auto;
   transform: translateY(1px);
 }
 
-/* hover stays subtle */
-.item:hover,
-.item:focus-visible {
-  filter: brightness(1.08);
+/* subtle hover */
+.menu-item:hover,
+.menu-item:focus-visible {
+  filter: brightness(1.07);
   outline: none;
 }
 
-/* grain / DVD capture softness */
+/* light DVD-ish grain */
 .grain {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.14;
+  opacity: 0.12;
   background-image:
     repeating-linear-gradient(
       0deg,
-      rgba(255,255,255,0.018) 0px,
-      rgba(255,255,255,0.018) 1px,
+      rgba(255,255,255,0.015) 0px,
+      rgba(255,255,255,0.015) 1px,
       rgba(0,0,0,0.012) 2px,
       rgba(0,0,0,0.012) 3px
     ),
     radial-gradient(circle at 20% 30%, rgba(255,255,255,0.04), transparent 35%),
-    radial-gradient(circle at 70% 65%, rgba(0,0,0,0.04), transparent 40%);
+    radial-gradient(circle at 72% 66%, rgba(0,0,0,0.04), transparent 40%);
   mix-blend-mode: overlay;
 }
 
-/* smaller screens */
-@media (max-width: 900px) {
+/* MacBook / laptop fullscreen behavior */
+@media (max-width: 1400px) {
   .menu {
-    right: 5%;
-    width: 42%;
-    min-width: 0;
-    top: 69%;
+    right: 5.8vw;
+    top: 67.8vh;
+    width: 33vw;
+    min-width: 340px;
   }
 
-  .item,
-  .item:visited {
-    font-size: clamp(18px, 3.2vw, 30px);
+  .menu-item,
+  .menu-item:visited {
+    font-size: clamp(22px, 2.8vw, 36px);
+  }
+
+  .scene-box {
+    width: 16px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .menu {
+    right: 4.5vw;
+    top: 68.5vh;
+    width: 40vw;
+    min-width: 0;
+  }
+
+  .menu-item,
+  .menu-item:visited {
+    font-size: clamp(18px, 3vw, 28px);
   }
 
   .scene-box {
     width: 12px;
-    height: 26px;
+    height: 24px;
   }
 }
