@@ -1,0 +1,146 @@
+:root {
+  /* sampled/approximated from your screenshot */
+  --peach: #da9787;
+  --burgundy: #91405d;
+  --cream: #d1c9c6;
+  --green: #168f86;
+  --ltblue: #46a8ea;
+  --purple: #ad66c3;
+
+  --txt-highlight: #a2b8eb; /* PLAY MOVIE */
+  --txt-blue: #7f94c5;      /* LANGUAGES */
+  --txt-soft: #c7d2d6;      /* other rows */
+  --indicator: #be9b8d;     /* small selection block */
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--peach);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+.stage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: var(--peach);
+}
+
+/* Bottom bands region */
+.bands {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 44vh; /* matches screenshot band placement */
+  pointer-events: none;
+}
+
+.bands-svg {
+  position: absolute;
+  left: 0;
+  bottom: 18vh; /* lifts the SVG so purple shows below */
+  width: 100%;
+  height: 26vh;
+  filter: saturate(0.98) contrast(0.98);
+}
+
+.purple-floor {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 18vh;
+  background: var(--purple);
+}
+
+/* Menu layout (right aligned like the DVD) */
+.menu {
+  position: absolute;
+  right: 5.5vw;
+  bottom: 10.5vh;
+  width: min(560px, 55vw);
+  display: flex;
+  flex-direction: column;
+  gap: 1.3vh;
+  align-items: flex-end;
+  text-align: right;
+}
+
+/* Menu text */
+.menu-item {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: clamp(22px, 3.3vw, 42px);
+  line-height: 1;
+  text-transform: uppercase;
+
+  /* slight “soft” edge like a TV capture */
+  text-shadow:
+    0 1px 0 rgba(0,0,0,0.05),
+    0 0 3px rgba(40,60,90,0.18);
+  transform: translateZ(0);
+}
+
+/* Color treatments per row */
+.is-highlight { color: var(--txt-highlight); }
+.is-blue      { color: var(--txt-blue); }
+.is-soft      { color: var(--txt-soft); opacity: 0.95; }
+.is-dim       { opacity: 0.55; }
+
+/* Scene row has the little rectangle at the end */
+.menu-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.scene-indicator {
+  width: 18px;
+  height: 36px;
+  background: var(--indicator);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.04);
+  opacity: 0.9;
+}
+
+/* Hover/focus: clickable but still “DVD menu” subtle */
+.menu-item:hover,
+.menu-item:focus-visible {
+  filter: brightness(1.07);
+  outline: none;
+}
+
+/* Add gentle grain / capture look */
+.noise {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.18;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.05), transparent 35%),
+    radial-gradient(circle at 70% 60%, rgba(0,0,0,0.04), transparent 40%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,0.02),
+      rgba(255,255,255,0.02) 1px,
+      rgba(0,0,0,0.02) 2px,
+      rgba(0,0,0,0.02) 3px
+    );
+  mix-blend-mode: overlay;
+}
+
+/* Mobile tweaks */
+@media (max-width: 520px) {
+  .menu { right: 4vw; width: 80vw; }
+  .scene-indicator { height: 30px; width: 16px; }
+}
