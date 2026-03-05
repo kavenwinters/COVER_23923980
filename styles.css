@@ -1,13 +1,13 @@
 :root{
   --bg: #d79788;
 
-  /* Tighter DVD-like sizing (won't blow up on MacBook fullscreen) */
-  --band-h: clamp(22px, 3.2vh, 34px);      /* maroon/white/green/blue */
-  --gap-h:  clamp(10px, 1.5vh, 16px);      /* peach gap between blue and purple */
-  --purple-h: clamp(150px, 19vh, 230px);   /* big purple area */
+  /* FINAL DVD-LIKE RATIOS (MacBook fullscreen @100%) */
+  --band-h: clamp(18px, 2.55vh, 28px);     /* thinner 4 stripes */
+  --gap-h:  clamp(3px, 0.45vh, 6px);       /* almost hairline peach divider */
+  --purple-h: clamp(165px, 22vh, 250px);   /* big purple, but not insane */
 
-  --menu-right: 6.8vw;
-  --menu-nudge: 0px;
+  --menu-right: 7.2vw;
+  --menu-down: 0.35vh;                     /* push menu slightly LOWER */
 
   /* text colors */
   --play: #a8bef3;
@@ -32,6 +32,18 @@ body{
   background: var(--bg);
 }
 
+/* subtle DVD gradient feel */
+.screen::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 70% 55%, rgba(0,0,0,0.08), transparent 48%),
+    linear-gradient(to bottom, rgba(255,255,255,0.06), transparent 40%, rgba(0,0,0,0.06));
+  opacity:0.55;
+}
+
 /* ==== STRIPE STACK ==== */
 .stripe-stack{
   position:absolute;
@@ -42,7 +54,6 @@ body{
   pointer-events:none;
 }
 
-/* SVG exactly = 4 stripes tall */
 .stripe-svg{
   position:absolute;
   left:0;
@@ -53,7 +64,6 @@ body{
   display:block;
 }
 
-/* Peach divider strip (matches DVD look) */
 .peach-gap{
   position:absolute;
   left:0;
@@ -63,7 +73,6 @@ body{
   background: var(--bg);
 }
 
-/* Purple always visible */
 .purple{
   position:absolute;
   left:0;
@@ -77,8 +86,8 @@ body{
 .menu{
   position:absolute;
   right: var(--menu-right);
-  bottom: calc(var(--purple-h) + var(--gap-h) + var(--menu-nudge));
-  width: min(560px, 40vw);
+  bottom: calc(var(--purple-h) + var(--gap-h) + var(--menu-down));
+  width: min(560px, 42vw);
   height: calc(var(--band-h) * 4);
   display:flex;
   flex-direction:column;
@@ -97,23 +106,24 @@ body{
   text-transform:uppercase;
   font-weight:700;
 
-  /* Fits inside each stripe like the DVD */
-  font-size: clamp(18px, 2.15vw, 38px);
+  /* fits inside thinner stripes */
+  font-size: clamp(18px, 2.05vw, 36px);
   line-height: 1;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.35px;
   white-space:nowrap;
 
+  /* DVD-ish darker edge */
+  -webkit-text-stroke: 1px rgba(40,60,120,0.35);
   text-shadow:
     0 1px 0 rgba(0,0,0,0.05),
-    0 0 3px rgba(70,90,130,0.14);
+    0 0 2px rgba(40,60,120,0.15);
 }
 
-/* row colors / fade */
 .play{ color: var(--play); }
 .languages{ color: var(--lang); }
 .scene{ color: var(--soft); }
-.features{ color: rgba(196, 208, 211, 0.62); }  /* more faded like DVD */
-.previews{ color: rgba(202, 184, 215, 0.85); }
+.features{ color: rgba(196, 208, 211, 0.60); }
+.previews{ color: rgba(202, 184, 215, 0.82); }
 
 .row:hover,
 .row:focus-visible{
