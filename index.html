@@ -3,95 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Superbad DVD Menu (Web)</title>
+  <title>Superbad DVD Menu</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="wrap">
-    <div class="frame" role="img" aria-label="Superbad DVD menu recreation">
-      <!-- Single SVG = background + stripes + separators (no gaps) -->
-      <svg class="art" viewBox="0 0 1000 750" preserveAspectRatio="none" aria-hidden="true">
-        <!-- Background -->
-        <rect x="0" y="0" width="1000" height="750" fill="#D79788"/>
+  <main class="screen">
 
-        <!-- Band Y coordinates (4:3 layout) -->
-        <!-- Top peach area ends at y=312 -->
-        <!-- Maroon: 312..347 -->
-        <!-- White : 347..402 -->
-        <!-- Green : 402..472 -->
-        <!-- Blue  : 472..532 -->
-        <!-- Thin separator (magenta-ish): 532..540 -->
-        <!-- Purple: 540..750 -->
+    <!-- Stripe stack anchored to bottom -->
+    <section class="stripe-stack" aria-hidden="true">
+      <!-- SVG draws ONLY the 4 colored bands with correct left bend -->
+      <svg class="stripe-svg" viewBox="0 0 1600 400" preserveAspectRatio="none">
+        <!-- band geometry uses real arcs so nothing turns into pointed lenses -->
 
-        <!-- Maroon band with left curve -->
+        <!-- MAROON (y: 0..70) -->
         <path d="
-          M 0 330
-          Q 70 312 210 312
-          L 1000 312
-          L 1000 347
-          L 210 347
-          Q 70 347 0 330
-          Z"
-          fill="#8C3E63"
-        />
+          M 0 70
+          A 140 140 0 0 1 140 0
+          L 1600 0
+          L 1600 70
+          Z" fill="#8C3E63" />
 
-        <!-- White band with left curve -->
+        <!-- WHITE (y: 70..150) -->
         <path d="
-          M 0 372
-          Q 80 347 225 347
-          L 1000 347
-          L 1000 402
-          L 225 402
-          Q 80 402 0 372
-          Z"
-          fill="#D8D4D0"
-        />
+          M 0 150
+          A 160 160 0 0 1 160 70
+          L 1600 70
+          L 1600 150
+          Z" fill="#D8D4D0" />
 
-        <!-- Green band with left curve -->
+        <!-- GREEN (y: 150..260) -->
         <path d="
-          M 0 438
-          Q 95 402 245 402
-          L 1000 402
-          L 1000 472
-          L 245 472
-          Q 95 472 0 438
-          Z"
-          fill="#13978F"
-        />
+          M 0 260
+          A 190 190 0 0 1 190 150
+          L 1600 150
+          L 1600 260
+          Z" fill="#13978F" />
 
-        <!-- Blue band with left curve -->
+        <!-- BLUE (y: 260..400) -->
         <path d="
-          M 0 505
-          Q 95 472 255 472
-          L 1000 472
-          L 1000 532
-          L 255 532
-          Q 95 532 0 505
-          Z"
-          fill="#4BA5E8"
-        />
-
-        <!-- Thin separator line between blue and purple (this exists on the DVD look) -->
-        <rect x="0" y="532" width="1000" height="8" fill="#B86A91" opacity="0.55"/>
-
-        <!-- Purple bottom area -->
-        <rect x="0" y="540" width="1000" height="210" fill="#A768C8"/>
+          M 0 400
+          A 220 220 0 0 1 220 260
+          L 1600 260
+          L 1600 400
+          Z" fill="#4BA5E8" />
       </svg>
 
-      <!-- Menu overlay -->
-      <nav class="menu" aria-label="DVD Menu">
-        <a class="item play" href="play.html">PLAY MOVIE</a>
-        <a class="item languages" href="languages.html">LANGUAGES</a>
-        <a class="item scene" href="scenes.html">SCENE SELECTIONS</a>
-        <a class="item features" href="features.html">SPECIAL FEATURES</a>
-        <a class="item previews" href="previews.html">PREVIEWS</a>
-      </nav>
+      <!-- Thin peach separator (DVD has a tiny peach line here) -->
+      <div class="peach-gap"></div>
 
-      <!-- Optional light DVD grain -->
-      <div class="grain" aria-hidden="true"></div>
-    </div>
-  </div>
+      <!-- Purple bottom area -->
+      <div class="purple"></div>
+    </section>
 
-  <script src="script.js"></script>
+    <!-- Menu locked to the 4 stripes (NO orange box) -->
+    <nav class="menu" aria-label="DVD Menu">
+      <a class="row play" href="play.html">PLAY MOVIE</a>
+      <a class="row languages" href="languages.html">LANGUAGES</a>
+      <a class="row scene" href="scenes.html">SCENE SELECTIONS</a>
+      <a class="row features" href="features.html">SPECIAL FEATURES</a>
+      <a class="row previews" href="previews.html">PREVIEWS</a>
+    </nav>
+
+    <div class="grain" aria-hidden="true"></div>
+
+    <script src="script.js"></script>
+  </main>
 </body>
 </html>
