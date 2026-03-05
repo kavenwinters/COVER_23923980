@@ -1,22 +1,19 @@
 :root{
-  /* background peach */
   --bg: #D79A8A;
 
-  /* stack height scales as one unit */
-  --stack-h: clamp(320px, 45vh, 470px);
+  /* scales together */
+  --stack-h: clamp(330px, 46vh, 500px);
+  --menu-right: 6.4vw;
 
-  /* menu placement */
-  --menu-right: 6.2vw;
+  /* TEXT COLORS (match DVD capture: blue + faded blue-gray) */
+  --play:  #A9BDF5;
+  --lang:  #7E95C9;
+  --scene: rgba(170, 195, 210, 0.78);
+  --feat:  rgba(150, 175, 195, 0.55);
+  --prev:  rgba(190, 175, 215, 0.78);
 
-  /* DVD-ish text colors */
-  --play: #A9BDF5;
-  --lang: #7E95C9;
-  --scene: rgba(196, 208, 211, 0.80);
-  --feat:  rgba(196, 208, 211, 0.55);
-  --prev:  rgba(202, 184, 215, 0.85);
-
-  /* subtle TV edge */
-  --stroke: rgba(35,55,110,0.28);
+  /* soft TV edge */
+  --stroke: rgba(35,55,110,0.24);
 }
 
 *{ box-sizing:border-box; }
@@ -35,7 +32,6 @@ body{
   background: var(--bg);
 }
 
-/* Bottom stack anchored */
 .stack{
   position:absolute;
   left:0;
@@ -44,7 +40,6 @@ body{
   height: var(--stack-h);
 }
 
-/* SVG fills the stack */
 .art{
   position:absolute;
   inset:0;
@@ -53,56 +48,53 @@ body{
   display:block;
 }
 
-/* Menu grid matches the SVG band heights (in fr units) */
+/* grid rows match the SVG exactly */
 .menu{
   position:absolute;
   right: var(--menu-right);
   top: 0;
   height: 100%;
-  width: min(620px, 44vw);
+  width: min(640px, 46vw);
 
   display:grid;
-  /* maroon / white / green / blue / separator / purple */
-  grid-template-rows: 70fr 80fr 110fr 100fr 5fr 155fr;
+  /* maroon(70) gap(14) white(70) gap(14) green(90) gap(14) blue(90) gap(14) purple(184) */
+  grid-template-rows: 70fr 14fr 70fr 14fr 90fr 14fr 90fr 14fr 184fr;
+
   align-items:center;
   justify-items:end;
-
   pointer-events:auto;
 }
 
-/* Base menu item styling */
+/* IMPORTANT: force color not to go black */
 .item{
+  color: inherit !important;
   text-decoration:none;
   text-transform:uppercase;
   font-weight:700;
   white-space:nowrap;
 
-  /* smaller like DVD */
-  font-size: clamp(18px, 2.0vw, 36px);
+  font-size: clamp(18px, 2.05vw, 36px);
   line-height: 1;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.15px;
 
   -webkit-text-stroke: 1px var(--stroke);
   text-shadow:
-    0 1px 0 rgba(0,0,0,0.06),
-    0 0 2px rgba(35,55,110,0.12);
-
-  color: inherit;
+    0 1px 0 rgba(0,0,0,0.05),
+    0 0 2px rgba(35,55,110,0.10);
 }
-.item:visited{ color: inherit; }
+.item:visited{ color: inherit !important; }
 
-/* Lock each option into its band row */
-.play{ grid-row: 1; color: var(--play); }
-.lang{ grid-row: 2; color: var(--lang); }
-.scene{ grid-row: 3; color: var(--scene); }
-.feat{ grid-row: 4; color: var(--feat); }
+.play{ grid-row: 1; color: var(--play) !important; }
+.lang{ grid-row: 3; color: var(--lang) !important; }
+.scene{ grid-row: 5; color: var(--scene) !important; }
+.feat{ grid-row: 7; color: var(--feat) !important; }
 
-/* PREVIEWS sits in purple, near the top like DVD */
+/* previews in purple near top */
 .prev{
-  grid-row: 6;
+  grid-row: 9;
   align-self: start;
-  margin-top: 22px;
-  color: var(--prev);
+  margin-top: 24px;
+  color: var(--prev) !important;
 }
 
 .item:hover,
@@ -111,7 +103,7 @@ body{
   outline:none;
 }
 
-/* subtle grain */
+/* grain */
 .grain{
   position:absolute;
   inset:0;
