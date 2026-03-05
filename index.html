@@ -3,83 +3,84 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Superbad Menu (Web)</title>
+    <title>Superbad DVD Menu</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-
   <body>
-    <main class="stage" aria-label="DVD Menu">
-      <!-- Bottom bands (SVG for the left bend) -->
-      <div class="bands" aria-hidden="true">
-        <svg class="bands-svg" viewBox="0 0 1000 340" preserveAspectRatio="none">
-          <!-- Peach base behind the bands is the page background -->
-
-          <!-- Burgundy band -->
+    <main class="stage">
+      <!-- background bands -->
+      <div class="bands-wrap" aria-hidden="true">
+        <svg
+          class="bands-svg"
+          viewBox="0 0 1600 420"
+          preserveAspectRatio="none"
+        >
+          <!-- maroon -->
           <path
-            d="M0,58
-               Q40,88 135,88
-               L1000,88
-               L1000,125
-               L135,125
-               Q40,125 0,92
+            d="M0,130
+               Q55,170 150,178
+               L1600,178
+               L1600,208
+               L150,208
+               Q52,202 0,166
                Z"
-            fill="var(--burgundy)"
+            fill="#8e3f63"
           />
 
-          <!-- Cream band -->
+          <!-- white -->
           <path
-            d="M0,125
-               Q42,155 140,155
-               L1000,155
-               L1000,190
-               L140,190
-               Q42,190 0,160
+            d="M0,166
+               Q55,202 150,208
+               L1600,208
+               L1600,236
+               L150,236
+               Q52,230 0,196
                Z"
-            fill="var(--cream)"
+            fill="#ddd8d3"
           />
 
-          <!-- Green band -->
+          <!-- teal/green -->
           <path
-            d="M0,190
-               Q44,220 146,220
-               L1000,220
-               L1000,270
-               L146,270
-               Q44,270 0,236
+            d="M0,196
+               Q55,230 150,236
+               L1600,236
+               L1600,278
+               L150,278
+               Q52,272 0,240
                Z"
-            fill="var(--green)"
+            fill="#15958c"
           />
 
-          <!-- Light blue band -->
+          <!-- blue -->
           <path
-            d="M0,270
-               Q44,300 150,300
-               L1000,300
-               L1000,340
-               L0,340
+            d="M0,240
+               Q55,272 150,278
+               L1600,278
+               L1600,318
+               L0,318
                Z"
-            fill="var(--ltblue)"
+            fill="#4aa7ea"
           />
         </svg>
 
-        <!-- Purple area under the light blue band -->
-        <div class="purple-floor"></div>
+        <div class="purple-band"></div>
       </div>
 
-      <!-- Clickable menu (positioned on top of the bands) -->
-      <nav class="menu" aria-label="Menu">
-        <a class="menu-item is-highlight" href="play.html" data-row="0">PLAY MOVIE</a>
-        <a class="menu-item is-blue" href="languages.html" data-row="1">LANGUAGES</a>
-        <div class="menu-row scene-row">
-          <a class="menu-item is-soft" href="scenes.html" data-row="2">SCENE SELECTIONS</a>
-          <span class="scene-indicator" aria-hidden="true"></span>
+      <!-- menu aligned to stripe centers -->
+      <nav class="menu" aria-label="DVD Menu">
+        <a href="play.html" class="menu-link play">PLAY MOVIE</a>
+        <a href="languages.html" class="menu-link languages">LANGUAGES</a>
+
+        <div class="scene-line">
+          <a href="scenes.html" class="menu-link scene">SCENE SELECTIONS</a>
+          <span class="scene-indicator"></span>
         </div>
-        <a class="menu-item is-soft" href="features.html" data-row="3">SPECIAL FEATURES</a>
-        <a class="menu-item is-soft is-dim" href="previews.html" data-row="4">PREVIEWS</a>
+
+        <a href="features.html" class="menu-link features">SPECIAL FEATURES</a>
+        <a href="previews.html" class="menu-link previews">PREVIEWS</a>
       </nav>
 
-      <!-- Subtle “DVD noise” overlay to feel like the screenshot -->
-      <div class="noise" aria-hidden="true"></div>
+      <div class="noise"></div>
     </main>
 
     <script src="script.js"></script>
