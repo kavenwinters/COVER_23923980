@@ -1,36 +1,35 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Menu</title>
-  <link rel="stylesheet" href="./style.css" />
+<meta charset="UTF-8">
+<title>Menu</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <!-- BACKGROUND -->
-  <div class="bg"></div>
-  <div class="bg-grain" aria-hidden="true"></div>
 
-  <!-- STRIPES (with left “bump” on the top stripe) -->
-  <div class="stripe-stack" role="navigation" aria-label="Menu">
-    <div class="stripe stripe-top"></div>
-    <div class="stripe stripe-white"></div>
-    <div class="stripe stripe-green stripe-selected">
-      <div class="stripe-text">
-        <a class="inactive" href="./friends.html">FRIENDS</a>
-        <a class="inactive" href="./hometown.html">HOMETOWN</a>
+<div class="sid">SID: 23923980</div>
 
-        <!-- SELECTED ITEM (change which one has class="selected") -->
-        <a class="selected" href="./nature.html">NATURE</a>
-        <span class="pip" aria-hidden="true"></span>
-      </div>
-    </div>
-    <div class="stripe stripe-blue"></div>
-    <div class="stripe stripe-purple"></div>
-  </div>
+<!-- dancer placeholder -->
+<div class="dancer"></div>
 
-  <!-- SID -->
-  <div class="sid">SID: 23923980</div>
+<!-- stripes -->
+<div class="stripes">
+  <div class="stripe red"></div>
+  <div class="stripe white"></div>
+  <div class="stripe green"></div>
+  <div class="stripe blue"></div>
+  <div class="stripe purple"></div>
+</div>
+
+<!-- menu text -->
+<div class="menu">
+  <a href="friends.html">FRIENDS</a>
+  <a href="hometown.html">HOMETOWN</a>
+  <a class="active" href="nature.html">NATURE</a>
+  <a href="#">VALUES</a>
+  <a href="#">MORE</a>
+</div>
+
 </body>
 </html>
