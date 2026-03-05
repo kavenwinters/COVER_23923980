@@ -14,12 +14,12 @@
       padding: 0;
       width: 100%;
       height: 100%;
-      background-color: #f27200; /* Superbad Orange */
-      overflow: hidden; /* Keeps the screen locked like a real DVD menu */
+      background-color: #f36c00; /* Exact Superbad Background Orange */
+      overflow: hidden; 
       font-family: 'Arial Black', Impact, sans-serif;
     }
 
-    /* SVG Background that handles the curves perfectly */
+    /* SVG Background */
     .bg-stripes {
       position: absolute;
       top: 0;
@@ -33,44 +33,52 @@
     .menu-item {
       position: absolute;
       right: 0;
-      width: 50vw; /* Takes up the right half of the screen */
+      width: 50vw; 
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      padding-right: 12vw; /* Adjust this to move text left or right */
+      padding-right: 12vw; 
       z-index: 2;
     }
 
     .menu-item a {
       text-decoration: none;
-      font-size: 3vh; /* Scales beautifully with screen height */
+      font-size: 3vh; 
       font-weight: 900;
       letter-spacing: 2px;
       display: flex;
       align-items: center;
-      transition: transform 0.15s ease-in-out;
+      /* Removed the scale, added a fast, sharp horizontal slide */
+      transform: translateX(0);
+      transition: transform 0.1s linear; 
     }
 
-    /* Adds a nice DVD-style hover pop */
-    .menu-item a:hover {
-      transform: scale(1.05) translateX(-5px);
-    }
-
-    /* Exact Text Colors from the Menu */
-    .text-white { color: #ffffff; }
-    .text-blue  { color: #0b2158; }
-    .text-purple{ color: #94569a; }
-    .text-brown { color: #b26558; }
-    .text-green { color: #75b785; }
-
-    /* The orange block next to PLAY MOVIE */
-    .orange-block {
+    /* The DVD Cursor Box - Hidden by default */
+    .menu-item a::after {
+      content: '';
       display: inline-block;
       width: 1.5vh;
       height: 3vh;
-      background-color: #f27200;
+      background-color: #f36c00; /* Matches the background perfectly */
       margin-left: 12px;
+      opacity: 0; /* Invisible until hovered */
     }
+
+    /* On Hover: Indent text to the left and show the box */
+    .menu-item a:hover {
+      transform: translateX(-1.5vw); 
+    }
+
+    .menu-item a:hover::after {
+      opacity: 1; 
+    }
+
+    /* Exact Text Colors color-picked from the original image */
+    .text-white { color: #ffffff; }
+    .text-blue  { color: #0d2459; }
+    .text-purple{ color: #a65d9d; }
+    .text-brown { color: #b56056; }
+    .text-green { color: #6eb981; }
 
     /* Placeholder for your dancing video later */
     .video-container {
@@ -86,7 +94,6 @@
 
   <svg class="bg-stripes" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
     <path d="M 0,500 Q 300,800 400,800 L 1000,800 L 1000,1000 L 0,1000 Z" fill="#c93f8e"/>
-    
     <g fill="none" stroke-width="50">
        <path d="M -50,325 Q 250,625 400,625 L 1050,625" stroke="#8c1025" />
        <path d="M -50,375 Q 250,675 400,675 L 1050,675" stroke="#e6d649" />
@@ -97,7 +104,7 @@
   </svg>
 
   <div class="menu-item" style="top: 60vh; height: 5vh;">
-    <a href="play.html" class="text-white">PLAY MOVIE<span class="orange-block"></span></a>
+    <a href="play.html" class="text-white">PLAY MOVIE</a>
   </div>
   
   <div class="menu-item" style="top: 65vh; height: 5vh;">
