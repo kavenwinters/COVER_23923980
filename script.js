@@ -1,12 +1,13 @@
-const links = Array.from(document.querySelectorAll(".item"));
+const links = Array.from(document.querySelectorAll(".menu-item"));
 let current = 2; // SCENE SELECTIONS
 
-function setActive(i) {
-  links.forEach(link => {
+function setActive(index) {
+  links.forEach((link) => {
     link.style.filter = "";
   });
-  if (links[i]) {
-    links[i].style.filter = "brightness(1.08)";
+
+  if (links[index]) {
+    links[index].style.filter = "brightness(1.08)";
   }
 }
 
