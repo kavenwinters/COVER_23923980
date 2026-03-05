@@ -7,70 +7,76 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="screen">
-
-    <!-- background stripes -->
-    <svg class="stripes" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
+  <main class="screen">
+    <!-- colored bands -->
+    <svg class="bands" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
       <!-- maroon -->
-      <path d="
-        M 0 585
-        Q 40 620 135 625
-        L 1440 625
-        L 1440 655
-        L 135 655
-        Q 40 650 0 615
-        Z" fill="#8f3d66"/>
+      <path
+        d="M0,560
+           Q35,600 135,610
+           L1440,610
+           L1440,650
+           L135,650
+           Q35,642 0,607
+           Z"
+        fill="#8c3e63"
+      />
 
       <!-- white -->
-      <path d="
-        M 0 615
-        Q 40 650 135 655
-        L 1440 655
-        L 1440 683
-        L 135 683
-        Q 40 678 0 645
-        Z" fill="#d9d5d0"/>
+      <path
+        d="M0,607
+           Q35,642 135,650
+           L1440,650
+           L1440,685
+           L135,685
+           Q35,677 0,645
+           Z"
+        fill="#d8d4d0"
+      />
 
-      <!-- teal -->
-      <path d="
-        M 0 645
-        Q 40 678 135 683
-        L 1440 683
-        L 1440 725
-        L 135 725
-        Q 40 720 0 687
-        Z" fill="#14978f"/>
+      <!-- green -->
+      <path
+        d="M0,645
+           Q35,677 135,685
+           L1440,685
+           L1440,735
+           L135,735
+           Q35,727 0,695
+           Z"
+        fill="#13978f"
+      />
 
       <!-- blue -->
-      <path d="
-        M 0 687
-        Q 40 720 135 725
-        L 1440 725
-        L 1440 765
-        L 0 765
-        Z" fill="#4da7eb"/>
+      <path
+        d="M0,695
+           Q35,727 135,735
+           L1440,735
+           L1440,780
+           L0,780
+           Z"
+        fill="#4ba5e8"
+      />
     </svg>
 
-    <!-- purple bottom strip -->
+    <!-- purple band -->
     <div class="purple-band" aria-hidden="true"></div>
 
     <!-- menu -->
     <nav class="menu" aria-label="DVD Menu">
-      <a href="play.html" class="item play">PLAY MOVIE</a>
-      <a href="languages.html" class="item languages">LANGUAGES</a>
+      <a href="play.html" class="menu-item play">PLAY MOVIE</a>
+      <a href="languages.html" class="menu-item languages">LANGUAGES</a>
 
       <div class="scene-row">
-        <a href="scenes.html" class="item scene">SCENE SELECTIONS</a>
-        <span class="scene-box"></span>
+        <a href="scenes.html" class="menu-item scene">SCENE SELECTIONS</a>
+        <span class="scene-box" aria-hidden="true"></span>
       </div>
 
-      <a href="features.html" class="item features">SPECIAL FEATURES</a>
-      <a href="previews.html" class="item previews">PREVIEWS</a>
+      <a href="features.html" class="menu-item features">SPECIAL FEATURES</a>
+      <a href="previews.html" class="menu-item previews">PREVIEWS</a>
     </nav>
 
-    <!-- light texture -->
     <div class="grain" aria-hidden="true"></div>
-  </div>
+  </main>
 
   <script src="script.js"></script>
 </body>
