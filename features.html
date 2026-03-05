@@ -25,77 +25,7 @@
       z-index: 1; 
     }
     
-    /* Bottom Left Navigation */
-    .nav-buttons { 
-      position: absolute; 
-      bottom: 12vh; 
-      left: 15vw; 
-      z-index: 2; 
-      display: flex; 
-      flex-direction: column; 
-      gap: 1.5vh; 
-    }
-    
-    .nav-buttons a { 
-      text-decoration: none; 
-      font-size: 3vh; 
-      font-weight: 900; 
-      letter-spacing: 2px; 
-      color: #6eb981; 
-      transform: translateX(0); 
-      transition: transform 0.1s linear; 
-      display: flex; 
-      align-items: center; 
-    }
-    
-    .nav-buttons a:hover { transform: translateX(1.5vw); }
-
-    /* Right Side Special Features Menu */
-    .features-menu {
-      position: absolute;
-      top: 7vh;
-      left: 49vw; /* Sits perfectly inside the green column */
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      gap: 0.8vh;
-    }
-
-    .features-title {
-      color: #c93f8e; /* Pink Title */
-      font-size: 4.5vh;
-      font-weight: 900;
-      line-height: 1;
-      margin-bottom: 0.5vh;
-      letter-spacing: 1px;
-    }
-
-    .features-menu a {
-      text-decoration: none;
-      color: #ffffff; /* White text for options */
-      font-size: 2.2vh;
-      font-weight: 900;
-      line-height: 1.1;
-      letter-spacing: 1px;
-      display: flex;
-      align-items: center;
-      transition: transform 0.1s linear;
-    }
-    
-    /* Orange block for hover state on the right menu */
-    .features-menu a::before { 
-      content: ''; 
-      display: inline-block; 
-      width: 1.2vh; 
-      height: 2.2vh; 
-      background-color: #f36c00; 
-      margin-right: 10px; 
-      opacity: 0; 
-    }
-    
-    .features-menu a:hover { transform: translateX(1vw); }
-    .features-menu a:hover::before { opacity: 1; }
-
+    /* Text styling removed for a clean layout */
   </style>
 </head>
 <body>
@@ -121,31 +51,9 @@
              L 450,0 Z" 
           fill="#179e40"/>
 
-    <path d="M 880,0 L 880,600 A 500 500 0 0 1 380,1100" fill="none" stroke="#e6d649" stroke-width="26" />
-    <path d="M 906,0 L 906,600 A 526 526 0 0 1 380,1126" fill="none" stroke="#179e40" stroke-width="26" />
     <path d="M 932,0 L 932,600 A 552 552 0 0 1 380,1152" fill="none" stroke="#5eb4cd" stroke-width="26" />
 
   </svg>
 
-  <div class="nav-buttons">
-    <a href="play.html">PLAY MOVIE</a>
-    <a href="index.html">MAIN MENU</a>
-  </div>
-
-  <div class="features-menu">
-    <div class="features-title">SPECIAL<br>FEATURES</div>
-    <a href="#">COMMENTARY WITH<br>FILMMAKERS AND CAST ON OFF</a>
-    <a href="#">DELETED AND<br>EXTENDED SCENES</a>
-    <a href="#">LINE-O-RAMA</a>
-    <a href="#">GAG REEL</a>
-    <a href="#">COP CAR CONFESSIONS</a>
-    <a href="#">THE MAKING OF SUPERBAD</a>
-    <a href="#">THE VAG-TASTIC VOYAGE</a>
-    <a href="#">ORIGINAL TABLE READ 2002<br>"SETH READS SETH"</a>
-    <a href="#">DANCING TITLE SEQUENCE</a>
-    <a href="#">PINEAPPLE EXPRESS:<br>EXCLUSIVE FIRST LOOK</a>
-    <a href="previews.html">PREVIEWS</a>
-  </div>
-
-</body>
+  </body>
 </html>
