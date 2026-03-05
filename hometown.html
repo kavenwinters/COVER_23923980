@@ -5,27 +5,27 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Hometown</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .page{ padding:40px; color:white; }
+    .back{ color:white; text-decoration:none; font-weight:800; }
+    .grid{ margin-top:20px; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; }
+    .ph{ height:220px; background:rgba(0,0,0,0.25); border-radius:14px; display:flex; align-items:center; justify-content:center; font-weight:800; }
+  </style>
 </head>
 <body>
-  <main class="page">
-    <header class="topbar">
-      <h1>HOMETOWN</h1>
-      <a class="back" href="index.html">← BACK TO MENU</a>
-    </header>
+  <div class="page">
+    <h1>HOMETOWN</h1>
+    <a class="back" href="index.html">← BACK TO MENU</a>
+    <p>SID: XXXXXXXX</p>
 
-    <p class="blurb">SID: XXXXXXXX</p>
-
-    <section class="grid">
-      <div class="ph">Drop a photo here later</div>
-      <div class="ph">Drop a photo here later</div>
-      <div class="ph">Drop a photo here later</div>
-      <div class="ph">Drop a photo here later</div>
-      <div class="ph">Drop a photo here later</div>
-      <div class="ph">Drop a photo here later</div>
-    </section>
-  </main>
-
-  <div class="grain" aria-hidden="true"></div>
-  <div class="vignette" aria-hidden="true"></div>
+    <div class="grid">
+      <div class="ph">Photo 1</div>
+      <div class="ph">Photo 2</div>
+      <div class="ph">Photo 3</div>
+      <div class="ph">Photo 4</div>
+      <div class="ph">Photo 5</div>
+      <div class="ph">Photo 6</div>
+    </div>
+  </div>
 </body>
 </html>
