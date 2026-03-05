@@ -1,11 +1,11 @@
 :root{
   --bg: #d79788;
 
-  /* DVD look control */
-  --band-h: 7.0vh;      /* each stripe height */
-  --purple-h: 17vh;     /* purple height */
-  --menu-right: 6.5vw;  /* how far from right edge */
-  --menu-nudge: -0.3vh; /* tiny vertical tweak */
+  /* LOCKED DVD RATIOS (won’t explode on MacBook fullscreen) */
+  --band-h: clamp(26px, 4.2vh, 44px);    /* maroon/white/green/blue thickness */
+  --purple-h: clamp(120px, 18vh, 190px); /* big purple area */
+  --menu-right: 6.2vw;                  /* right alignment */
+  --menu-nudge: 0px;                    /* tiny vertical tweak if needed */
 
   /* text colors */
   --play: #a8bef3;
@@ -30,7 +30,7 @@ body{
   background: var(--bg);
 }
 
-/* ==== STRIPES ==== */
+/* ==== STRIPE STACK (BOTTOM) ==== */
 .stripe-stack{
   position:absolute;
   left:0;
@@ -40,6 +40,7 @@ body{
   pointer-events:none;
 }
 
+/* SVG is exactly the height of the 4 stripes */
 .stripe-svg{
   position:absolute;
   left:0;
@@ -50,6 +51,7 @@ body{
   display:block;
 }
 
+/* Purple always visible */
 .purple{
   position:absolute;
   left:0;
@@ -59,7 +61,7 @@ body{
   background:#a768c8;
 }
 
-/* ==== MENU (LOCKED TO STRIPES) ==== */
+/* ==== MENU LOCKED INTO STRIPES ==== */
 .menu{
   position:absolute;
   right: var(--menu-right);
@@ -72,20 +74,22 @@ body{
   z-index:5;
 }
 
+/* each row fits INSIDE one stripe */
 .row,
 .row:visited{
   height: var(--band-h);
   display:flex;
-  align-items:center;          /* centers text in each stripe */
+  align-items:center;
   justify-content:flex-end;
+
   text-decoration:none;
   text-transform:uppercase;
   font-weight:700;
 
-  /* tuned so text fits inside bands */
-  font-size: clamp(20px, 2.45vw, 40px);
-  line-height: 0.95;
-  letter-spacing: 0.2px;
+  /* fits inside stripe */
+  font-size: clamp(18px, 2.25vw, 38px);
+  line-height: 1;
+  letter-spacing: 0.3px;
   white-space:nowrap;
 
   text-shadow:
@@ -93,7 +97,6 @@ body{
     0 0 3px rgba(70,90,130,0.14);
 }
 
-/* row colors */
 .play{ color: var(--play); }
 .languages{ color: var(--lang); }
 .scene{ color: var(--soft); }
@@ -123,21 +126,4 @@ body{
     radial-gradient(circle at 20% 30%, rgba(255,255,255,0.04), transparent 35%),
     radial-gradient(circle at 72% 66%, rgba(0,0,0,0.04), transparent 40%);
   mix-blend-mode: overlay;
-}
-
-/* laptop-ish scaling */
-@media (max-width: 1200px){
-  :root{
-    --band-h: 7.6vh;
-    --purple-h: 18vh;
-    --menu-right: 5.8vw;
-    --menu-nudge: -0.2vh;
-  }
-
-  .menu{ width: min(520px, 48vw); }
-
-  .row,
-  .row:visited{
-    font-size: clamp(18px, 3.0vw, 36px);
-  }
 }
