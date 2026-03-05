@@ -1,21 +1,22 @@
-const links = Array.from(document.querySelectorAll(".row"));
+const links = Array.from(document.querySelectorAll(".item"));
 let current = 0;
 
-function highlight(i){
+function setActive(i){
   links.forEach(a => a.style.filter = "");
   links[i].style.filter = "brightness(1.08)";
 }
-highlight(current);
+
+setActive(current);
 
 window.addEventListener("keydown", (e) => {
   if (e.key === "ArrowUp"){
     e.preventDefault();
     current = (current - 1 + links.length) % links.length;
-    highlight(current);
+    setActive(current);
   } else if (e.key === "ArrowDown"){
     e.preventDefault();
     current = (current + 1) % links.length;
-    highlight(current);
+    setActive(current);
   } else if (e.key === "Enter"){
     e.preventDefault();
     links[current].click();
