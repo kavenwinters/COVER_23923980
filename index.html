@@ -8,76 +8,74 @@
 </head>
 <body>
   <main class="screen">
-    <!-- colored bands -->
-    <svg class="bands" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
-      <!-- maroon -->
-      <path
-        d="M0,560
-           Q35,600 135,610
-           L1440,610
-           L1440,650
-           L135,650
-           Q35,642 0,607
-           Z"
-        fill="#8c3e63"
-      />
+    <!-- Stripe stack anchored to the bottom -->
+    <section class="stripe-stack" aria-hidden="true">
+      <!-- 4 equal-height stripes + left curve -->
+      <svg class="stripe-svg" viewBox="0 0 1600 400" preserveAspectRatio="none">
+        <!-- MAROON -->
+        <path
+          d="M0,0
+             Q70,55 190,72
+             L1600,72
+             L1600,100
+             L190,100
+             Q70,100 0,72
+             Z"
+          fill="#8c3e63"
+        />
 
-      <!-- white -->
-      <path
-        d="M0,607
-           Q35,642 135,650
-           L1440,650
-           L1440,685
-           L135,685
-           Q35,677 0,645
-           Z"
-        fill="#d8d4d0"
-      />
+        <!-- WHITE -->
+        <path
+          d="M0,72
+             Q70,100 190,100
+             L1600,100
+             L1600,200
+             L190,200
+             Q70,200 0,160
+             Z"
+          fill="#d8d4d0"
+        />
 
-      <!-- green -->
-      <path
-        d="M0,645
-           Q35,677 135,685
-           L1440,685
-           L1440,735
-           L135,735
-           Q35,727 0,695
-           Z"
-        fill="#13978f"
-      />
+        <!-- GREEN -->
+        <path
+          d="M0,160
+             Q70,200 190,200
+             L1600,200
+             L1600,300
+             L190,300
+             Q70,300 0,250
+             Z"
+          fill="#13978f"
+        />
 
-      <!-- blue -->
-      <path
-        d="M0,695
-           Q35,727 135,735
-           L1440,735
-           L1440,780
-           L0,780
-           Z"
-        fill="#4ba5e8"
-      />
-    </svg>
+        <!-- BLUE -->
+        <path
+          d="M0,250
+             Q70,300 190,300
+             L1600,300
+             L1600,400
+             L0,400
+             Z"
+          fill="#4ba5e8"
+        />
+      </svg>
 
-    <!-- purple band -->
-    <div class="purple-band" aria-hidden="true"></div>
+      <!-- Purple below -->
+      <div class="purple"></div>
+    </section>
 
-    <!-- menu -->
+    <!-- Menu locked into the 4 stripes (no orange block) -->
     <nav class="menu" aria-label="DVD Menu">
-      <a href="play.html" class="menu-item play">PLAY MOVIE</a>
-      <a href="languages.html" class="menu-item languages">LANGUAGES</a>
-
-      <div class="scene-row">
-        <a href="scenes.html" class="menu-item scene">SCENE SELECTIONS</a>
-        <span class="scene-box" aria-hidden="true"></span>
-      </div>
-
-      <a href="features.html" class="menu-item features">SPECIAL FEATURES</a>
-      <a href="previews.html" class="menu-item previews">PREVIEWS</a>
+      <a href="play.html" class="row play">PLAY MOVIE</a>
+      <a href="languages.html" class="row languages">LANGUAGES</a>
+      <a href="scenes.html" class="row scene">SCENE SELECTIONS</a>
+      <a href="features.html" class="row features">SPECIAL FEATURES</a>
+      <a href="previews.html" class="row previews">PREVIEWS</a>
     </nav>
 
     <div class="grain" aria-hidden="true"></div>
-  </main>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
+  </main>
 </body>
 </html>
