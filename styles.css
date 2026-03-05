@@ -7,7 +7,177 @@
   --gap-h:  clamp(2px, 0.35vh, 5px);      /* tiny peach line above purple */
   --purple-h: clamp(210px, 30vh, 340px);  /* big purple area */
 
+  /* menu placement */:root{
+  /* base background */
+  --bg: #D79788;
+
+  /* DVD-ish band thickness ratios (maroon thin; green/blue thicker) */
+  --maroon-h: clamp(22px, 3.0vh, 32px);
+  --white-h:  clamp(34px, 4.2vh, 48px);
+  --green-h:  clamp(44px, 5.6vh, 64px);
+  --blue-h:   clamp(40px, 5.2vh, 60px);
+
+  /* divider + purple */
+  --sep-h:    clamp(4px, 0.6vh, 8px);
+  --purple-h: clamp(160px, 22vh, 240px);
+
   /* menu placement */
+  --menu-right: 6.5vw;
+
+  /* text colors */
+  --play: #A8BEF3;
+  --lang: #708CC2;
+  --soft: #C4D0D3;
+  --fade: rgba(196,208,211,0.62);
+  --dim:  rgba(202,184,215,0.85);
+
+  /* TV capture outline */
+  --stroke: rgba(35,55,110,0.35);
+}
+
+*{ box-sizing:border-box; }
+html, body{ margin:0; width:100%; height:100%; }
+
+body{
+  background: var(--bg);
+  overflow:hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.screen{
+  position:relative;
+  width:100vw;
+  height:100vh;
+  background: var(--bg);
+}
+
+/* ====== BOTTOM STACK ====== */
+.stack{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height: calc(
+    var(--maroon-h) + var(--white-h) + var(--green-h) + var(--blue-h)
+    + var(--sep-h) + var(--purple-h)
+  );
+  pointer-events:none;
+}
+
+/* The SVG is EXACTLY the height of the 4 stripes */
+.bands{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom: calc(var(--sep-h) + var(--purple-h));
+  height: calc(var(--maroon-h) + var(--white-h) + var(--green-h) + var(--blue-h));
+  width:100%;
+  display:block;
+}
+
+/* divider line */
+.separator{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom: var(--purple-h);
+  height: var(--sep-h);
+  background: rgba(184,106,145,0.55); /* thin pinkish capture line */
+}
+
+/* purple */
+.purple{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height: var(--purple-h);
+  background:#A768C8;
+}
+
+/* ====== MENU ====== */
+.menu{
+  position:absolute;
+  right: var(--menu-right);
+  bottom: 0;
+  width: min(620px, 44vw);
+  height: 100vh;
+  z-index: 5;
+  pointer-events:auto;
+}
+
+/* First 4 options are aligned to the 4 stripe heights */
+.menu-stripes{
+  position:absolute;
+  right:0;
+  bottom: calc(var(--sep-h) + var(--purple-h));
+  height: calc(var(--maroon-h) + var(--white-h) + var(--green-h) + var(--blue-h));
+  width: 100%;
+
+  display:grid;
+  grid-template-rows: var(--maroon-h) var(--white-h) var(--green-h) var(--blue-h);
+  align-items:center;
+  justify-items:end;
+}
+
+/* PREVIEWS sits in purple region */
+.prev{
+  position:absolute;
+  right:0;
+  bottom: calc(var(--purple-h) * 0.35); /* places it near upper purple like DVD */
+  transform: translateY(50%);
+}
+
+/* shared link style */
+.item{
+  text-decoration:none;
+  text-transform:uppercase;
+  font-weight:700;
+  white-space:nowrap;
+
+  font-size: clamp(18px, 2.15vw, 38px);
+  line-height: 1;
+  letter-spacing: 0.3px;
+
+  -webkit-text-stroke: 1px var(--stroke);
+  text-shadow:
+    0 1px 0 rgba(0,0,0,0.06),
+    0 0 2px rgba(35,55,110,0.14);
+
+  color: inherit;
+}
+.item:visited{ color: inherit; }
+
+.play{ color: var(--play); }
+.lang{ color: var(--lang); }
+.scene{ color: var(--soft); }
+.feat{ color: var(--fade); }
+.prev{ color: var(--dim); }
+
+.item:hover,
+.item:focus-visible{
+  filter: brightness(1.06);
+  outline:none;
+}
+
+/* ====== grain ====== */
+.grain{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.11;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,0.015) 0px,
+      rgba(255,255,255,0.015) 1px,
+      rgba(0,0,0,0.012) 2px,
+      rgba(0,0,0,0.012) 3px
+    ),
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.04), transparent 35%),
+    radial-gradient(circle at 72% 66%, rgba(0,0,0,0.04), transparent 40%);
+  mix-blend-mode: overlay;
+}
   --menu-right: 7vw;                      /* right offset */
   --menu-nudge: 0px;                      /* small vertical tweak */
 
