@@ -1,60 +1,133 @@
+/* ---------- Base ---------- */
+:root{
+  --orange: #f48c63;
+  --top:    #a64a5b;  /* burgundy */
+  --white:  #f2efe7;
+  --green:  #2ea48f;
+  --blue:   #6ec4d8;
+  --purple: #7c4a86;
+  --shadow: rgba(0,0,0,0.25);
+}
+
+*{ box-sizing: border-box; }
+
+html, body{
+  height: 100%;
+}
+
 body{
-  margin:0;
+  margin: 0;
+  overflow: hidden;
   font-family: Arial, Helvetica, sans-serif;
-  background:#f48c63;
-  overflow:hidden;
+  background: var(--orange);
 }
 
-.menu-container{
+/* ---------- Background (subtle texture) ---------- */
+.bg{
+  position: fixed;
+  inset: 0;
+  background: var(--orange);
+}
+
+.bg-grain{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.10;
+  /* lightweight grain-ish pattern */
+  background-image:
+    radial-gradient(rgba(0,0,0,0.18) 1px, transparent 1px);
+  background-size: 6px 6px;
+  mix-blend-mode: multiply;
+}
+
+/* ---------- Stripe stack positioning ---------- */
+.stripe-stack{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 120px;   /* move stack up/down */
+}
+
+/* stripe sizing */
+.stripe{
+  height: 44px;
+  width: 100%;
+}
+
+/* colors */
+.stripe-top{ background: var(--top); position: relative; }
+.stripe-white{ background: var(--white); }
+.stripe-green{ background: var(--green); position: relative; }
+.stripe-blue{ background: var(--blue); }
+.stripe-purple{ background: var(--purple); }
+
+/* ---------- Left rounded “bump” on the top stripe ---------- */
+.stripe-top::before{
+  content:"";
   position:absolute;
-  bottom:28%;
-  width:100%;
+  left: -120px;          /* pushes the bump off-screen like DVD */
+  top: 0;
+  width: 260px;
+  height: 44px;
+  background: var(--top);
+  border-top-right-radius: 120px;
+  border-bottom-right-radius: 120px;
 }
 
-.row{
-  height:46px;
-  display:flex;
-  align-items:center;
-  justify-content:flex-end;
-  padding-right:150px;
+/* ---------- Menu text block (right aligned) ---------- */
+.stripe-text{
+  position: absolute;
+  right: 120px;          /* menu right padding */
+  top: -6px;             /* slight vertical offset like DVD */
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: right;
 }
 
-.row a{
-  text-decoration:none;
-  color:white;
-  font-size:28px;
-  font-weight:800;
-  letter-spacing:0.03em;
-  text-shadow:2px 2px rgba(0,0,0,0.30);
-  padding:2px 10px;
+/* menu links default (greyed like non-selected options) */
+.stripe-text a{
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 30px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  line-height: 1;
 }
 
-.red{ background:#b24a59; }
-.white{ background:#f2efe7; }
-.green{ background:#2ea48f; }
-.white a{ color:#111; }
-
-.row:hover{
-  filter:brightness(1.15);
-  cursor:pointer;
+/* “inactive” look */
+.inactive{
+  color: rgba(255,255,255,0.55);
+  text-shadow: none;
 }
 
-.dancer-placeholder{
-  position:absolute;
-  bottom:27%;
-  left:30%;
-  width:180px;
-  height:320px;
-  background:#111;
-  opacity:0.85;
-  border-radius:30px;
+/* white stripe would normally have dark text; in this layout
+   we’re placing the text over green like the screenshot */
+.selected{
+  color: #ffffff;
+  text-shadow: 2px 2px rgba(0,0,0,0.20);
 }
 
+/* small orange indicator block next to selected item */
+.pip{
+  position: absolute;
+  right: -18px;
+  top: 74px;             /* aligns with the 3rd item (NATURE) */
+  width: 10px;
+  height: 22px;
+  background: #f2a34a;
+  border-radius: 2px;
+  box-shadow: 1px 1px rgba(0,0,0,0.15);
+}
+
+/* ---------- SID ---------- */
 .sid{
-  position:absolute;
-  top:18px;
-  right:18px;
-  color:white;
-  font-size:14px;
-  letter-spacing:0.04em;
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  color: white;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  opacity: 0.95;
 }
