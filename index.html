@@ -4,46 +4,36 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Superbad DVD Menu</title>
-  <link rel="stylesheet" href="menu.css?v=10" />
+  <link rel="stylesheet" href="menu.css?v=11" />
 </head>
 <body>
   <main class="screen">
-
     <section class="stack" aria-hidden="true">
-      <!-- One SVG draws: peach base + 4 bands + peach separators + purple -->
       <svg class="art" viewBox="0 0 1600 560" preserveAspectRatio="none">
-        <!-- Peach base (DVD background) -->
-        <rect x="0" y="0" width="1600" height="560" fill="#D89889"/>
+        <!-- Peach base -->
+        <rect x="0" y="0" width="1600" height="560" fill="#D79A8A"/>
 
-        <!-- Layout (y):
-          maroon  : 0..70
-          gap     : 70..82
-          white   : 82..152
-          gap     : 152..164
-          green   : 164..254
-          gap     : 254..266
-          blue    : 266..356
-          gap     : 356..370  (peach strip above purple)
-          purple  : 370..560
+        <!-- Band layout (no dancer):
+           maroon:  0..70
+           gap:     70..84
+           white:   84..154
+           gap:     154..168
+           green:   168..258
+           gap:     258..272
+           blue:    272..362
+           gap:     362..376
+           purple:  376..560
         -->
 
-        <!-- Peach separators (explicit so you ALWAYS see them) -->
-        <rect x="0" y="70"  width="1600" height="12" fill="#D89889"/>
-        <rect x="0" y="152" width="1600" height="12" fill="#D89889"/>
-        <rect x="0" y="254" width="1600" height="12" fill="#D89889"/>
-        <rect x="0" y="356" width="1600" height="14" fill="#D89889"/>
-
-        <!-- Bands: rounded-left “DVD bend” -->
-        <!-- Helper: rounded-left band = round cap via quadratic corners -->
-
-        <!-- MAROON (thin) -->
+        <!-- Bands FIRST -->
+        <!-- MAROON -->
         <path d="
           M 0 70
           L 0 34
-          Q 0 0 48 0
+          Q 0 0 56 0
           L 1600 0
           L 1600 70
-          L 48 70
+          L 56 70
           Q 0 70 0 34
           Z"
           fill="#8E3E63"
@@ -51,50 +41,55 @@
 
         <!-- WHITE -->
         <path d="
-          M 0 152
-          L 0 118
-          Q 0 82 56 82
-          L 1600 82
-          L 1600 152
-          L 56 152
-          Q 0 152 0 118
+          M 0 154
+          L 0 120
+          Q 0 84 64 84
+          L 1600 84
+          L 1600 154
+          L 64 154
+          Q 0 154 0 120
           Z"
-          fill="#D9D4CF"
+          fill="#D8D4D0"
         />
 
         <!-- GREEN -->
         <path d="
-          M 0 254
-          L 0 210
-          Q 0 164 70 164
-          L 1600 164
-          L 1600 254
-          L 70 254
-          Q 0 254 0 210
+          M 0 258
+          L 0 214
+          Q 0 168 78 168
+          L 1600 168
+          L 1600 258
+          L 78 258
+          Q 0 258 0 214
           Z"
           fill="#178F86"
         />
 
         <!-- BLUE -->
         <path d="
-          M 0 356
-          L 0 310
-          Q 0 266 84 266
-          L 1600 266
-          L 1600 356
-          L 0 356
+          M 0 362
+          L 0 318
+          Q 0 272 92 272
+          L 1600 272
+          L 1600 362
+          L 0 362
           Z"
           fill="#4AA7EA"
         />
 
-        <!-- Thin “capture line” between blue and purple (very subtle like DVD) -->
-        <rect x="0" y="370" width="1600" height="4" fill="#B86A91" opacity="0.25"/>
-
         <!-- PURPLE -->
-        <rect x="0" y="374" width="1600" height="186" fill="#A56CC9"/>
+        <rect x="0" y="376" width="1600" height="184" fill="#A56CC9"/>
+
+        <!-- NOW draw the peach gaps ON TOP so they cannot disappear -->
+        <rect x="0" y="70"  width="1600" height="14" fill="#D79A8A"/>
+        <rect x="0" y="154" width="1600" height="14" fill="#D79A8A"/>
+        <rect x="0" y="258" width="1600" height="14" fill="#D79A8A"/>
+        <rect x="0" y="362" width="1600" height="14" fill="#D79A8A"/>
+
+        <!-- tiny capture line above purple (DVD-ish, subtle) -->
+        <rect x="0" y="376" width="1600" height="4" fill="#B86A91" opacity="0.22"/>
       </svg>
 
-      <!-- Menu overlay locked to band heights -->
       <nav class="menu" aria-label="DVD Menu">
         <a class="item play" href="play.html">PLAY MOVIE</a>
         <a class="item lang" href="languages.html">LANGUAGES</a>
@@ -107,6 +102,6 @@
     <div class="grain" aria-hidden="true"></div>
   </main>
 
-  <script src="menu.js?v=10"></script>
+  <script src="menu.js?v=11"></script>
 </body>
 </html>
