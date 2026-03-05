@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Special Features</title>
+  <style>
+    * { box-sizing: border-box; }
+    body, html { margin: 0; padding: 0; width: 100%; height: 100%; background-color: #c93f8e; overflow: hidden; font-family: 'Arial Black', Impact, sans-serif; }
+    .bg-stripes { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1; }
+    
+    .nav-buttons { position: absolute; bottom: 12vh; left: 18vw; z-index: 2; display: flex; flex-direction: column; gap: 1.5vh; }
+    .nav-buttons a { text-decoration: none; font-size: 3vh; font-weight: 900; letter-spacing: 2px; color: #6eb981; transform: translateX(0); transition: transform 0.1s linear; display: flex; align-items: center; }
+    
+    .nav-buttons a::before { content: ''; display: inline-block; width: 1.5vh; height: 3vh; background-color: #6eb981; margin-right: 12px; opacity: 0; }
+    .nav-buttons a:hover { transform: translateX(1.5vw); }
+    .nav-buttons a:hover::before { opacity: 1; }
+  </style>
+</head>
+<body>
+  <svg class="bg-stripes" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+    <path d="M 0,0 L 700,0 L 700,600 Q 700,750 500,750 L 0,750 Z" fill="#8c1025"/>
+    <path d="M 1000,0 L 850,0 L 850,600 Q 850,800 750,860 L 600,1000 L 1000,1000 Z" fill="#179e40"/>
+    
+    <g fill="none" stroke-width="50">
+       <path d="M 725,0 L 725,600 Q 725,775 500,775 L -50,775" stroke="#e6d649" />
+       <path d="M 775,0 L 775,600 Q 775,825 500,825 L -50,825" stroke="#179e40" />
+       <path d="M 825,0 L 825,600 Q 825,875 500,875 L -50,875" stroke="#5eb4cd" />
+    </g>
+  </svg>
+
+  <div class="nav-buttons">
+    <a href="play.html">PLAY MOVIE</a>
+    <a href="index.html">MAIN MENU</a>
+  </div>
+</body>
+</html>
