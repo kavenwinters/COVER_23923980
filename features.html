@@ -25,7 +25,42 @@
       z-index: 1; 
     }
     
-    /* Text styling removed for a clean layout */
+    /* Bottom Left Navigation */
+    .nav-buttons { 
+      position: absolute; 
+      bottom: 12vh; 
+      left: 15vw; 
+      z-index: 2; 
+      display: flex; 
+      flex-direction: column; 
+      gap: 1.5vh; 
+    }
+    
+    .nav-buttons a { 
+      text-decoration: none; 
+      font-size: 3vh; 
+      font-weight: 900; 
+      letter-spacing: 2px; 
+      color: #6eb981; 
+      transform: translateX(0); 
+      transition: transform 0.1s linear; 
+      display: flex; 
+      align-items: center; 
+    }
+    
+    /* Hover box on the left */
+    .nav-buttons a::before { 
+      content: ''; 
+      display: inline-block; 
+      width: 1.5vh; 
+      height: 3vh; 
+      background-color: #6eb981; /* Green hover box */
+      margin-right: 12px; 
+      opacity: 0; 
+    }
+    
+    .nav-buttons a:hover { transform: translateX(1.5vw); }
+    .nav-buttons a:hover::before { opacity: 1; }
   </style>
 </head>
 <body>
@@ -51,9 +86,4 @@
              L 450,0 Z" 
           fill="#179e40"/>
 
-    <path d="M 932,0 L 932,600 A 552 552 0 0 1 380,1152" fill="none" stroke="#5eb4cd" stroke-width="26" />
-
-  </svg>
-
-  </body>
-</html>
+    <path d="M 932,0 L 932,600 A 552 552 0 0 1 380,11
