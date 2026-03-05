@@ -1,25 +1,15 @@
 :root{
-  /* background */
   --bg: #D79788;
 
-  /* KEY: stable sizing on MacBook fullscreen + zoom changes */
-  --band-h: clamp(22px, 3.2vh, 34px);     /* thickness of EACH stripe */
-  --gap-h:  clamp(2px, 0.35vh, 5px);      /* tiny peach line above purple */
-  --purple-h: clamp(210px, 30vh, 340px);  /* big purple area */
+  /* DVD-ish thickness ratios (caps prevent blow-ups) */
+  --maroon-h: clamp(22px, 2.7vh, 30px);
+  --white-h:  clamp(30px, 3.6vh, 42px);
+  --green-h:  clamp(40px, 4.8vh, 56px);
+  --blue-h:   clamp(38px, 4.6vh, 54px);
 
-  /* menu placement */:root{
-  /* base background */
-  --bg: #D79788;
-
-  /* DVD-ish band thickness ratios (maroon thin; green/blue thicker) */
-  --maroon-h: clamp(22px, 3.0vh, 32px);
-  --white-h:  clamp(34px, 4.2vh, 48px);
-  --green-h:  clamp(44px, 5.6vh, 64px);
-  --blue-h:   clamp(40px, 5.2vh, 60px);
-
-  /* divider + purple */
-  --sep-h:    clamp(4px, 0.6vh, 8px);
-  --purple-h: clamp(160px, 22vh, 240px);
+  /* thin capture line + purple */
+  --line-h:   clamp(3px, 0.45vh, 6px);
+  --purple-h: clamp(180px, 24vh, 260px);
 
   /* menu placement */
   --menu-right: 6.5vw;
@@ -31,7 +21,7 @@
   --fade: rgba(196,208,211,0.62);
   --dim:  rgba(202,184,215,0.85);
 
-  /* TV capture outline */
+  /* TV-ish outline */
   --stroke: rgba(35,55,110,0.35);
 }
 
@@ -51,7 +41,7 @@ body{
   background: var(--bg);
 }
 
-/* ====== BOTTOM STACK ====== */
+/* ----- bottom stack ----- */
 .stack{
   position:absolute;
   left:0;
@@ -59,33 +49,31 @@ body{
   bottom:0;
   height: calc(
     var(--maroon-h) + var(--white-h) + var(--green-h) + var(--blue-h)
-    + var(--sep-h) + var(--purple-h)
+    + var(--line-h) + var(--purple-h)
   );
   pointer-events:none;
 }
 
-/* The SVG is EXACTLY the height of the 4 stripes */
+/* SVG height = sum of the 4 stripe heights */
 .bands{
   position:absolute;
   left:0;
   right:0;
-  bottom: calc(var(--sep-h) + var(--purple-h));
+  bottom: calc(var(--line-h) + var(--purple-h));
   height: calc(var(--maroon-h) + var(--white-h) + var(--green-h) + var(--blue-h));
   width:100%;
   display:block;
 }
 
-/* divider line */
-.separator{
+.line{
   position:absolute;
   left:0;
   right:0;
   bottom: var(--purple-h);
-  height: var(--sep-h);
-  background: rgba(184,106,145,0.55); /* thin pinkish capture line */
+  height: var(--line-h);
+  background: rgba(184,106,145,0.55);
 }
 
-/* purple */
 .purple{
   position:absolute;
   left:0;
@@ -95,7 +83,7 @@ body{
   background:#A768C8;
 }
 
-/* ====== MENU ====== */
+/* ----- menu ----- */
 .menu{
   position:absolute;
   right: var(--menu-right);
@@ -106,11 +94,11 @@ body{
   pointer-events:auto;
 }
 
-/* First 4 options are aligned to the 4 stripe heights */
+/* first 4 items align to stripe heights exactly */
 .menu-stripes{
   position:absolute;
   right:0;
-  bottom: calc(var(--sep-h) + var(--purple-h));
+  bottom: calc(var(--line-h) + var(--purple-h));
   height: calc(var(--maroon-h) + var(--white-h) + var(--green-h) + var(--blue-h));
   width: 100%;
 
@@ -120,15 +108,15 @@ body{
   justify-items:end;
 }
 
-/* PREVIEWS sits in purple region */
+/* previews sits in purple (upper area like DVD) */
 .prev{
   position:absolute;
   right:0;
-  bottom: calc(var(--purple-h) * 0.35); /* places it near upper purple like DVD */
+  bottom: calc(var(--purple-h) * 0.30);
   transform: translateY(50%);
 }
 
-/* shared link style */
+/* shared text style */
 .item{
   text-decoration:none;
   text-transform:uppercase;
@@ -160,146 +148,7 @@ body{
   outline:none;
 }
 
-/* ====== grain ====== */
-.grain{
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  opacity:.11;
-  background-image:
-    repeating-linear-gradient(
-      0deg,
-      rgba(255,255,255,0.015) 0px,
-      rgba(255,255,255,0.015) 1px,
-      rgba(0,0,0,0.012) 2px,
-      rgba(0,0,0,0.012) 3px
-    ),
-    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.04), transparent 35%),
-    radial-gradient(circle at 72% 66%, rgba(0,0,0,0.04), transparent 40%);
-  mix-blend-mode: overlay;
-}
-  --menu-right: 7vw;                      /* right offset */
-  --menu-nudge: 0px;                      /* small vertical tweak */
-
-  /* text colors */
-  --play: #A8BEF3;
-  --lang: #708CC2;
-  --soft: #C4D0D3;
-  --soft-fade: rgba(196,208,211,0.62);
-  --dim: rgba(202,184,215,0.82);
-
-  /* TV-ish edge */
-  --stroke: rgba(35,55,110,0.35);
-}
-
-*{ box-sizing:border-box; }
-html,body{ margin:0; width:100%; height:100%; }
-
-body{
-  background: var(--bg);
-  overflow:hidden;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.screen{
-  position:relative;
-  width:100vw;
-  height:100vh;
-  background: var(--bg);
-}
-
-/* ==== STRIPES ==== */
-.stripe-stack{
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  height: calc((var(--band-h) * 4) + var(--gap-h) + var(--purple-h));
-  pointer-events:none;
-}
-
-/* SVG height is EXACTLY 4 bands tall */
-.stripe-svg{
-  position:absolute;
-  left:0;
-  right:0;
-  bottom: calc(var(--purple-h) + var(--gap-h));
-  height: calc(var(--band-h) * 4);
-  width:100%;
-  display:block;
-}
-
-/* this is the peach line you said you "didn't see" — now it is explicit */
-.peach-gap{
-  position:absolute;
-  left:0;
-  right:0;
-  bottom: var(--purple-h);
-  height: var(--gap-h);
-  background: var(--bg);
-}
-
-.purple{
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  height: var(--purple-h);
-  background:#A768C8;
-}
-
-/* ==== MENU: locked into stripes ==== */
-.menu{
-  position:absolute;
-  right: var(--menu-right);
-  bottom: calc(var(--purple-h) + var(--gap-h) + var(--menu-nudge));
-  width: min(560px, 40vw);
-  height: calc(var(--band-h) * 4);
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  z-index:5;
-}
-
-.row{
-  height: var(--band-h);
-  display:flex;
-  align-items:center;
-  justify-content:flex-end;
-
-  text-decoration:none;
-  text-transform:uppercase;
-  font-weight:700;
-  white-space:nowrap;
-
-  /* sized to fit inside stripes */
-  font-size: clamp(18px, 2.15vw, 38px);
-  line-height: 1;
-  letter-spacing: 0.3px;
-
-  /* prevent browser link styling */
-  color: inherit;
-  -webkit-text-stroke: 1px var(--stroke);
-  text-shadow:
-    0 1px 0 rgba(0,0,0,0.06),
-    0 0 2px rgba(35,55,110,0.14);
-}
-
-.row:visited{ color: inherit; }
-
-.play{ color: var(--play); }
-.languages{ color: var(--lang); }
-.scene{ color: var(--soft); }
-.features{ color: var(--soft-fade); }
-.previews{ color: var(--dim); }
-
-.row:hover,
-.row:focus-visible{
-  filter: brightness(1.06);
-  outline:none;
-}
-
-/* light DVD grain */
+/* grain */
 .grain{
   position:absolute;
   inset:0;
