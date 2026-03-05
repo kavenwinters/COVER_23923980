@@ -1,23 +1,23 @@
 :root{
-  --bg: #d79788;
+  --bg: #D79788;
 
-  /* FINAL DVD-LIKE RATIOS (MacBook fullscreen @100%) */
-  --band-h: clamp(18px, 2.55vh, 28px);     /* thinner 4 stripes */
-  --gap-h:  clamp(3px, 0.45vh, 6px);       /* almost hairline peach divider */
-  --purple-h: clamp(165px, 22vh, 250px);   /* big purple, but not insane */
+  /* text colors from the DVD-ish look */
+  --play: #A8BEF3;
+  --lang: #708CC2;
+  --soft: #C4D0D3;
+  --soft2: rgba(196,208,211,0.62);
+  --dim: rgba(202,184,215,0.82);
 
-  --menu-right: 7.2vw;
-  --menu-down: 0.35vh;                     /* push menu slightly LOWER */
-
-  /* text colors */
-  --play: #a8bef3;
-  --lang: #708cc2;
-  --soft: #c4d0d3;
-  --dim:  #cab8d7;
+  /* dark edge like TV capture */
+  --stroke: rgba(35, 55, 110, 0.35);
 }
 
 *{ box-sizing:border-box; }
-html,body{ margin:0; width:100%; height:100%; }
+html, body{
+  margin:0;
+  width:100%;
+  height:100%;
+}
 
 body{
   background: var(--bg);
@@ -25,118 +25,92 @@ body{
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.screen{
-  position:relative;
-  width:100vw;
-  height:100vh;
+/* Center a fixed 4:3 artboard that scales together */
+.wrap{
+  position:fixed;
+  inset:0;
+  display:grid;
+  place-items:center;
   background: var(--bg);
 }
 
-/* subtle DVD gradient feel */
-.screen::before{
-  content:"";
+/* 4:3 frame that fits any screen */
+.frame{
+  position:relative;
+  width: min(100vw, calc(100vh * (4/3)));
+  height: min(100vh, calc(100vw * (3/4)));
+  background: var(--bg);
+  overflow:hidden;
+}
+
+.art{
   position:absolute;
   inset:0;
-  pointer-events:none;
-  background:
-    radial-gradient(circle at 70% 55%, rgba(0,0,0,0.08), transparent 48%),
-    linear-gradient(to bottom, rgba(255,255,255,0.06), transparent 40%, rgba(0,0,0,0.06));
-  opacity:0.55;
-}
-
-/* ==== STRIPE STACK ==== */
-.stripe-stack{
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  height: calc((var(--band-h) * 4) + var(--gap-h) + var(--purple-h));
-  pointer-events:none;
-}
-
-.stripe-svg{
-  position:absolute;
-  left:0;
-  right:0;
-  bottom: calc(var(--purple-h) + var(--gap-h));
-  height: calc(var(--band-h) * 4);
   width:100%;
+  height:100%;
   display:block;
 }
 
-.peach-gap{
-  position:absolute;
-  left:0;
-  right:0;
-  bottom: var(--purple-h);
-  height: var(--gap-h);
-  background: var(--bg);
-}
-
-.purple{
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  height: var(--purple-h);
-  background:#a768c8;
-}
-
-/* ==== MENU (LOCKED INTO STRIPES) ==== */
+/* MENU positioned in percentage of the 4:3 frame (scales perfectly) */
 .menu{
   position:absolute;
-  right: var(--menu-right);
-  bottom: calc(var(--purple-h) + var(--gap-h) + var(--menu-down));
-  width: min(560px, 42vw);
-  height: calc(var(--band-h) * 4);
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
+  right: 6.5%;
+  top: 0;
+  width: 42%;
+  height: 100%;
+  pointer-events:auto;
   z-index:5;
 }
 
-.row,
-.row:visited{
-  height: var(--band-h);
-  display:flex;
-  align-items:center;
-  justify-content:flex-end;
-
+/* Each item is placed at the CENTER of its band (based on the SVG Y coords) */
+/* Centers mapped from viewBox (0..750) to %:
+   Maroon center 329.5 -> 43.93%
+   White  center 374.5 -> 49.93%
+   Green  center 437.0 -> 58.27%
+   Blue   center 502.0 -> 66.93%
+   Purple center 660.0 -> 88.00% (PREVIEWS sits in upper purple)
+*/
+.item{
+  position:absolute;
+  right:0;
+  transform: translateY(-50%);
   text-decoration:none;
   text-transform:uppercase;
-  font-weight:700;
-
-  /* fits inside thinner stripes */
-  font-size: clamp(18px, 2.05vw, 36px);
-  line-height: 1;
-  letter-spacing: 0.35px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
   white-space:nowrap;
 
-  /* DVD-ish darker edge */
-  -webkit-text-stroke: 1px rgba(40,60,120,0.35);
+  /* Scale with frame */
+  font-size: clamp(18px, 3.1vw, 44px);
+  line-height: 1;
+
+  /* TV-ish edge */
+  -webkit-text-stroke: 1px var(--stroke);
   text-shadow:
-    0 1px 0 rgba(0,0,0,0.05),
-    0 0 2px rgba(40,60,120,0.15);
+    0 1px 0 rgba(0,0,0,0.06),
+    0 0 2px rgba(35,55,110,0.14);
 }
 
-.play{ color: var(--play); }
-.languages{ color: var(--lang); }
-.scene{ color: var(--soft); }
-.features{ color: rgba(196, 208, 211, 0.60); }
-.previews{ color: rgba(202, 184, 215, 0.82); }
+/* Y placement */
+.play      { top: 43.93%; color: var(--play); }
+.languages { top: 49.93%; color: var(--lang); }
+.scene     { top: 58.27%; color: var(--soft); }
+.features  { top: 66.93%; color: var(--soft2); }
+.previews  { top: 88.00%; color: var(--dim); }
 
-.row:hover,
-.row:focus-visible{
-  filter: brightness(1.07);
+/* subtle hover (still DVD-ish) */
+.item:hover,
+.item:focus-visible{
+  filter: brightness(1.06);
   outline:none;
 }
 
-/* DVD-ish grain */
+/* grain overlay */
 .grain{
   position:absolute;
   inset:0;
   pointer-events:none;
-  opacity:.12;
+  opacity: 0.11;
   background-image:
     repeating-linear-gradient(
       0deg,
