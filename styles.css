@@ -1,140 +1,117 @@
-:root {
+:root{
   --bg: #d79788;
 
+  /* DVD look control */
+  --band-h: 7.0vh;      /* each stripe height */
+  --purple-h: 17vh;     /* purple height */
+  --menu-right: 6.5vw;  /* how far from right edge */
+  --menu-nudge: -0.3vh; /* tiny vertical tweak */
+
+  /* text colors */
   --play: #a8bef3;
   --lang: #708cc2;
   --soft: #c4d0d3;
-  --dim: #cab8d7;
-  --selector: #c4a395;
+  --dim:  #cab8d7;
 }
 
-* {
-  box-sizing: border-box;
-}
+*{ box-sizing:border-box; }
+html,body{ margin:0; width:100%; height:100%; }
 
-html, body {
-  margin: 0;
-  width: 100%;
-  height: 100%;
-}
-
-body {
-  overflow: hidden;
+body{
   background: var(--bg);
+  overflow:hidden;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.screen {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
+.screen{
+  position:relative;
+  width:100vw;
+  height:100vh;
   background: var(--bg);
 }
 
-/* Background bands */
-.bands {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
+/* ==== STRIPES ==== */
+.stripe-stack{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height: calc((var(--band-h) * 4) + var(--purple-h));
+  pointer-events:none;
 }
 
-/* Purple bottom area */
-.purple-band {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 780px;              /* matches the SVG baseline */
-  bottom: 0;
-  background: #a768c8;
+.stripe-svg{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom: var(--purple-h);
+  height: calc(var(--band-h) * 4);
+  width:100%;
+  display:block;
 }
 
-/* Scale the purple band cleanly on laptop fullscreen */
-@media (min-width: 1000px) {
-  .purple-band {
-    top: 86.7vh;
-  }
+.purple{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height: var(--purple-h);
+  background:#a768c8;
 }
 
-/* Menu block */
-.menu {
-  position: absolute;
-  right: 6.2vw;
-  top: 67.2vh;             /* hard-locked to lower-right */
-  width: 31vw;
-  min-width: 380px;
-  max-width: 520px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.12em;
-  z-index: 10;
+/* ==== MENU (LOCKED TO STRIPES) ==== */
+.menu{
+  position:absolute;
+  right: var(--menu-right);
+  bottom: calc(var(--purple-h) + var(--menu-nudge));
+  width: min(560px, 40vw);
+  height: calc(var(--band-h) * 4);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  z-index:5;
 }
 
-.menu-item,
-.menu-item:visited {
-  text-decoration: none;
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: clamp(24px, 2.95vw, 42px);
-  line-height: 1.02;
-  letter-spacing: 0.5px;
-  white-space: nowrap;
+.row,
+.row:visited{
+  height: var(--band-h);
+  display:flex;
+  align-items:center;          /* centers text in each stripe */
+  justify-content:flex-end;
+  text-decoration:none;
+  text-transform:uppercase;
+  font-weight:700;
+
+  /* tuned so text fits inside bands */
+  font-size: clamp(20px, 2.45vw, 40px);
+  line-height: 0.95;
+  letter-spacing: 0.2px;
+  white-space:nowrap;
+
   text-shadow:
-    0 1px 0 rgba(0, 0, 0, 0.04),
-    0 0 3px rgba(80, 90, 120, 0.14);
+    0 1px 0 rgba(0,0,0,0.05),
+    0 0 3px rgba(70,90,130,0.14);
 }
 
-.play {
-  color: var(--play);
-}
+/* row colors */
+.play{ color: var(--play); }
+.languages{ color: var(--lang); }
+.scene{ color: var(--soft); }
+.features{ color: rgba(196, 208, 211, 0.70); }
+.previews{ color: rgba(202, 184, 215, 0.90); }
 
-.languages {
-  color: var(--lang);
-}
-
-.scene {
-  color: var(--soft);
-}
-
-.features {
-  color: rgba(196, 208, 211, 0.72);
-}
-
-.previews {
-  color: rgba(202, 184, 215, 0.9);
-}
-
-.scene-row {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 10px;
-}
-
-.scene-box {
-  width: 18px;
-  height: 36px;
-  background: var(--selector);
-  border-radius: 2px;
-  flex: 0 0 auto;
-  transform: translateY(1px);
-}
-
-/* subtle hover */
-.menu-item:hover,
-.menu-item:focus-visible {
+.row:hover,
+.row:focus-visible{
   filter: brightness(1.07);
-  outline: none;
+  outline:none;
 }
 
-/* light DVD-ish grain */
-.grain {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.12;
+/* DVD-ish grain */
+.grain{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.12;
   background-image:
     repeating-linear-gradient(
       0deg,
@@ -148,41 +125,19 @@ body {
   mix-blend-mode: overlay;
 }
 
-/* MacBook / laptop fullscreen behavior */
-@media (max-width: 1400px) {
-  .menu {
-    right: 5.8vw;
-    top: 67.8vh;
-    width: 33vw;
-    min-width: 340px;
+/* laptop-ish scaling */
+@media (max-width: 1200px){
+  :root{
+    --band-h: 7.6vh;
+    --purple-h: 18vh;
+    --menu-right: 5.8vw;
+    --menu-nudge: -0.2vh;
   }
 
-  .menu-item,
-  .menu-item:visited {
-    font-size: clamp(22px, 2.8vw, 36px);
-  }
+  .menu{ width: min(520px, 48vw); }
 
-  .scene-box {
-    width: 16px;
-    height: 32px;
-  }
-}
-
-@media (max-width: 1000px) {
-  .menu {
-    right: 4.5vw;
-    top: 68.5vh;
-    width: 40vw;
-    min-width: 0;
-  }
-
-  .menu-item,
-  .menu-item:visited {
-    font-size: clamp(18px, 3vw, 28px);
-  }
-
-  .scene-box {
-    width: 12px;
-    height: 24px;
+  .row,
+  .row:visited{
+    font-size: clamp(18px, 3.0vw, 36px);
   }
 }
