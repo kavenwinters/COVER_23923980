@@ -3,20 +3,34 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Links Cover</title>
+  <title>Menu</title>
   <link rel="stylesheet" href="./style.css" />
 </head>
+
 <body>
+  <!-- BACKGROUND -->
+  <div class="bg"></div>
+  <div class="bg-grain" aria-hidden="true"></div>
 
-  <div class="dancer-placeholder" aria-hidden="true"></div>
+  <!-- STRIPES (with left “bump” on the top stripe) -->
+  <div class="stripe-stack" role="navigation" aria-label="Menu">
+    <div class="stripe stripe-top"></div>
+    <div class="stripe stripe-white"></div>
+    <div class="stripe stripe-green stripe-selected">
+      <div class="stripe-text">
+        <a class="inactive" href="./friends.html">FRIENDS</a>
+        <a class="inactive" href="./hometown.html">HOMETOWN</a>
 
-  <div class="menu-container">
-    <div class="row red"><a href="./friends.html">FRIENDS</a></div>
-    <div class="row white"><a href="./hometown.html">HOMETOWN</a></div>
-    <div class="row green"><a href="./nature.html">NATURE</a></div>
+        <!-- SELECTED ITEM (change which one has class="selected") -->
+        <a class="selected" href="./nature.html">NATURE</a>
+        <span class="pip" aria-hidden="true"></span>
+      </div>
+    </div>
+    <div class="stripe stripe-blue"></div>
+    <div class="stripe stripe-purple"></div>
   </div>
 
+  <!-- SID -->
   <div class="sid">SID: 23923980</div>
-
 </body>
 </html>
