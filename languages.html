@@ -48,6 +48,19 @@
     }
     
     .nav-buttons a:hover { transform: translateX(1.5vw); }
+
+    /* Green DVD-style hover box */
+    .nav-buttons a::before { 
+      content: ''; 
+      display: inline-block; 
+      width: 1.5vh; 
+      height: 3vh; 
+      background-color: #6eb981; 
+      margin-right: 12px; 
+      opacity: 0; 
+    }
+    
+    .nav-buttons a:hover::before { opacity: 1; }
   </style>
 </head>
 <body>
