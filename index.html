@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Superbad DVD Menu</title>
@@ -48,23 +46,21 @@
       letter-spacing: 2px;
       display: flex;
       align-items: center;
-      /* Removed the scale, added a fast, sharp horizontal slide */
       transform: translateX(0);
       transition: transform 0.1s linear; 
     }
 
-    /* The DVD Cursor Box - Hidden by default */
+    /* The DVD Cursor Box - Now Green to match the application theme */
     .menu-item a::after {
       content: '';
       display: inline-block;
       width: 1.5vh;
       height: 3vh;
-      background-color: #f36c00; /* Matches the background perfectly */
+      background-color: #179e40; 
       margin-left: 12px;
-      opacity: 0; /* Invisible until hovered */
+      opacity: 0; 
     }
 
-    /* On Hover: Indent text to the left and show the box */
     .menu-item a:hover {
       transform: translateX(-1.5vw); 
     }
@@ -73,14 +69,13 @@
       opacity: 1; 
     }
 
-    /* Exact Text Colors color-picked from the original image */
+    /* Exact Text Colors */
     .text-white { color: #ffffff; }
     .text-blue  { color: #0d2459; }
     .text-purple{ color: #a65d9d; }
     .text-brown { color: #b56056; }
     .text-green { color: #6eb981; }
 
-    /* Placeholder for your dancing video later */
     .video-container {
       position: absolute;
       top: 15%;
@@ -88,9 +83,19 @@
       height: 60vh;
       z-index: 5;
     }
-  </style>
-</head>
-<body>
+
+    /* Student ID Display for Compliance [cite: 56, 85] */
+    .sid-display {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 1.5vh;
+      z-index: 10;
+    }
+  </style></head><body>
+
+  <div class="sid-display">SID# [YOUR ID HERE]</div>
 
   <svg class="bg-stripes" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
     <path d="M 0,500 Q 300,800 400,800 L 1000,800 L 1000,1000 L 0,1000 Z" fill="#c93f8e"/>
@@ -112,7 +117,7 @@
   </div>
   
   <div class="menu-item" style="top: 70vh; height: 5vh;">
-    <a href="scenes.html" class="text-purple">SCENE SELECTIONS</a>
+    <a href="backstory.html" class="text-purple">BACKSTORY</a>
   </div>
   
   <div class="menu-item" style="top: 75vh; height: 5vh;">
@@ -124,7 +129,4 @@
   </div>
 
   <div class="video-container">
-    </div>
-
-</body>
-</html>
+    </div></body></html>
