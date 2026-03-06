@@ -80,10 +80,10 @@
     .nav-buttons a:hover { transform: translateY(-5px); }
     .nav-buttons a:hover::before { opacity: 1; }
 
-    /* Content Area */
+    /* Main Content Area */
     .content-area {
       position: absolute;
-      top: 20vh;
+      top: 15vh; /* Drop slightly from 20vh to give title breathing room */
       left: 10vw;
       width: 80vw;
       color: white;
@@ -95,6 +95,87 @@
       margin: 0;
       line-height: 0.9;
       color: #e6d649; /* Yellow Title */
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 3vh;
+    }
+
+    /* ESSAY LAYOUT GRIDS */
+    .story-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3vw;
+      width: 100%;
+    }
+
+    .image-column {
+      display: flex;
+      flex-direction: column;
+      gap: 2vh;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .text-column {
+      display: flex;
+      flex-direction: column;
+      gap: 2vh;
+    }
+
+    /* DVD TEXT BOX AESTHETIC */
+    .dvd-text-box {
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+      border: 4px solid #ffffff;
+      padding: 2.5vh;
+      box-shadow: 10px 10px 0px #000000;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      max-height: 35vh; /* Limits height to prevent scrolling */
+      overflow-y: auto; /* Adds scrolling within the box if needed */
+    }
+
+    .dvd-text-box h2 {
+      color: #e6d649; /* Yellow highlights */
+      font-size: 2vh;
+      margin-top: 0;
+      margin-bottom: 1vh;
+      line-height: 1;
+    }
+
+    .dvd-text-box p {
+      font-size: 1.4vh; /* Keeps text small and sharp on screen */
+      line-height: 1.4;
+      margin-top: 0;
+      margin-bottom: 1vh;
+      text-align: justify;
+    }
+
+    /* DVD IMAGE FRAME AESTHETIC */
+    .dvd-image-frame {
+      display: inline-block;
+      max-width: 90%;
+      height: auto;
+      border: 10px solid;
+      box-shadow: 10px 10px 0px #000000;
+      position: relative;
+    }
+
+    /* Rustic/Traditional frame for roots (Toledo) */
+    .frame-rustic {
+      border-color: #e6d649; /* Yellow frame */
+      transform: rotate(-3deg);
+    }
+
+    /* UofA frame for the journey (Red/Navy) */
+    .frame-uofa {
+      border-color: #0b2158; /* Navy frame */
+      transform: rotate(3deg);
+    }
+
+    .dvd-image-frame img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
     }
 
   </style>
@@ -105,7 +186,39 @@
 
   <div class="content-area">
     <h1>BACKSTORY</h1>
+    
+    <div class="story-layout">
+      
+      <div class="image-column">
+        
+        <div class="dvd-image-frame frame-rustic">
+          <img src="https://via.placeholder.com/600x400/8c1025/e6d649?text=PIC+1+ROOTS" alt="Toledo, WA Roots">
+        </div>
+
+        <div class="dvd-image-frame frame-uofa">
+          <img src="https://via.placeholder.com/600x400/0b2158/e6d649?text=PIC+2+JOURNEY" alt="UofA Community">
+        </div>
+
+      </div>
+
+      <div class="text-column">
+        
+        <div class="dvd-text-box">
+          <h2>CHAPTER 1: ROOTS & TRADITIONS</h2>
+          <p>This essay explores how my perspective was fundamentally shaped by growing up in Toledo, WA, a small agricultural town in the Pacific Northwest. Our traditions were built on hard work, resilience, and a profound respect for the community that supported us. Living among fields that required patience and dedication taught me traditional values that go beyond the typical definitions of outstanding character.</p>
+          <p>Our town values dedication and honesty over quick success. It taught me that outstanding service isn’t about applause, but about quietly ensuring the job is done right. As I transitioned from a small farming community to a major university campus, those values grounded me. This background forms the foundation of my drive and my understanding of traditional success.</p>
+        </div>
+
+        <div class="dvd-text-box">
+          <h2>CHAPTER 2: THE JOURNEY TO PURPOSE</h2>
+          <p>My journey to the University of Arizona required navigating challenges that extended beyond mere academics. Arriving on campus initially presented a complex landscape of traditions and new ideas. But it was here that I found my true calling and my dedication to the larger community.</p>
+          <p>My work in mechanical engineering and wind power research has been driven by that same small-town belief that every action has purpose. I learned that true service often happens behind the scenes, upholding the traditions of scholarship and community while preparing for future challenges. My perspective shifted from merely seeking involvement to actively contributing to the enduring spirit that drives the Wildcat community forward.</p>
+        </div>
+
+      </div>
+
     </div>
+  </div>
 
   <div class="bg-stripes">
     <div class="stripe stripe-yellow"></div>
