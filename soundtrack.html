@@ -61,15 +61,15 @@
     
     .nav-buttons a:hover::before { opacity: 1; }
 
-    /* Updated Content Area for side-by-side layout */
+    /* Updated Content Area for strict side-by-side layout */
     .content-area {
       position: absolute;
       top: 15vh;
       left: 10vw;
-      width: 80vw;
+      width: 78vw;
       z-index: 2;
-      display: flex; /* Enables the split layout */
-      justify-content: space-between;
+      display: flex; 
+      justify-content: space-between; /* Creates the gap in the middle */
       align-items: flex-start;
     }
 
@@ -80,19 +80,17 @@
       color: #e6d649; /* Blocky Yellow Title */
       text-transform: uppercase;
       letter-spacing: 2px;
-      flex: 1; /* Keeps title on the left */
+      width: 35vw; /* HARD LOCK: Keeps title strictly on the left */
     }
 
-    /* New blocky text section for the red area */
+    /* New blocky text section locked to the red area */
     .soundtrack-text {
-      flex: 1; /* Pushes text to the right side */
-      font-size: 1.8vh; /* Smaller font size */
+      width: 38vw; /* HARD LOCK: Keeps text strictly on the right */
+      font-size: 1.8vh; 
       line-height: 1.5;
       color: #e6d649; /* Same yellow as the title */
       text-transform: uppercase;
       letter-spacing: 1px;
-      padding-left: 2vw;
-      padding-right: 2vw; /* Keeps it comfortably inside the red shape */
       text-align: justify;
     }
   </style>
