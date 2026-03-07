@@ -66,10 +66,10 @@
       position: absolute;
       top: 15vh;
       left: 10vw;
-      width: 78vw;
+      width: 80vw;
       z-index: 2;
       display: flex; 
-      justify-content: space-between; /* Creates the gap in the middle */
+      gap: 5vw; /* Forces a hard 5% gap between the title and the text */
       align-items: flex-start;
     }
 
@@ -80,12 +80,13 @@
       color: #e6d649; /* Blocky Yellow Title */
       text-transform: uppercase;
       letter-spacing: 2px;
-      width: 35vw; /* HARD LOCK: Keeps title strictly on the left */
+      width: 35vw; /* Keeps title strictly inside the orange box */
+      flex-shrink: 0; /* Prevents the text from squishing the title */
     }
 
-    /* New blocky text section locked to the red area */
+    /* New blocky text section locked safely inside the red area */
     .soundtrack-text {
-      width: 38vw; /* HARD LOCK: Keeps text strictly on the right */
+      width: 30vw; /* Thinned out so it avoids the right-side curves completely */
       font-size: 1.8vh; 
       line-height: 1.5;
       color: #e6d649; /* Same yellow as the title */
