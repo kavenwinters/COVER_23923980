@@ -16,6 +16,7 @@
       font-family: 'Arial Black', Impact, sans-serif; 
     }
     
+    /* Student ID Display for Compliance */
     .sid-display {
       position: absolute;
       top: 20px;
@@ -42,6 +43,7 @@
     .stripe-blue { background-color: #5eb4cd; }
     .stripe-pink { background-color: #c93f8e; }
     
+    /* Navigation buttons sitting above the stripes */
     .nav-buttons { 
       position: absolute; 
       bottom: 16vh; 
@@ -63,6 +65,7 @@
       align-items: center; 
     }
     
+    /* Green hover box logic */
     .nav-buttons a::before { 
       content: ''; 
       display: inline-block; 
@@ -79,7 +82,7 @@
     /* Content Area */
     .content-area {
       position: absolute;
-      top: 10vh;
+      top: 15vh;
       left: 10vw;
       width: 80vw;
       color: white;
@@ -87,61 +90,12 @@
     }
 
     h1 {
-      font-size: 7vh;
-      margin: 0 0 4vh 0;
-      line-height: 0.9;
-      color: #e6d649; 
-      text-transform: uppercase;
-      letter-spacing: 4px;
-    }
-
-    .main-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 5vw;
-      align-items: start;
-    }
-
-    /* Minimalist Image Styling */
-    .image-group {
-      display: flex;
-      flex-direction: column;
-      gap: 3vh;
-    }
-
-    .image-group img {
-      width: 100%;
-      border: 2px solid white; /* Simple, clean border */
-      box-shadow: 8px 8px 0px rgba(0,0,0,0.3);
-    }
-
-    /* Minimalist Text Blocks (Menu Style) */
-    .text-group {
-      display: flex;
-      flex-direction: column;
-      gap: 5vh;
-      font-family: 'Georgia', serif; /* Serif for that menu feel */
-    }
-
-    .menu-item-text {
-      max-width: 450px;
-    }
-
-    .menu-item-text h2 {
-      font-family: 'Arial Black', sans-serif;
-      font-size: 2.2vh;
-      color: #e6d649;
-      margin: 0 0 1vh 0;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .menu-item-text p {
-      font-size: 1.7vh;
-      line-height: 1.6;
+      font-size: 8vh;
       margin: 0;
-      font-style: italic;
-      color: #f4ece1;
+      line-height: 0.9;
+      color: #e6d649; /* Yellow Title */
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
 
   </style>
@@ -152,35 +106,7 @@
 
   <div class="content-area">
     <h1>BACKSTORY</h1>
-    
-    <div class="main-grid">
-      
-      <div class="image-group">
-        <img src="image_05b1e7.jpg" alt="Toledo WA Aerial">
-        <img src="7575FB3A-DE5F-4FDB-AFB7-D749C7AE78C0_1_105_c.jpeg" alt="High Point Lookout">
-      </div>
-
-      <div class="text-group">
-        
-        <div class="menu-item-text">
-          <h2>Chapter I: The Foundation</h2>
-          <p>Toledo, WA. A small agricultural town in the southwest corner of the state where the work day follows the sun and the community is held together by quiet resilience. Growing up here wasn't about the noise; it was about the foundation of hard work.</p>
-        </div>
-
-        <div class="menu-item-text">
-          <h2>Chapter II: The Ascent</h2>
-          <p>From the vantage point of High Point Lookout, the world looks different. It taught me that perspective is something you earn through the climb. It’s this drive that I brought with me to the University of Arizona to pursue mechanical engineering.</p>
-        </div>
-
-        <div class="menu-item-text">
-          <h2>Chapter III: The Mission</h2>
-          <p>My goal is to apply traditional character to modern challenges. Whether it's developing wind power solutions or collaborating with my peers, I ensure that service remains the heartbeat of everything I build.</p>
-        </div>
-
-      </div>
-
     </div>
-  </div>
 
   <div class="bg-stripes">
     <div class="stripe stripe-yellow"></div>
