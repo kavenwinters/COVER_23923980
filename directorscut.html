@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Director's Cut</title>
+  <title>Coming Soon</title>
   <style>
     * { box-sizing: border-box; }
     body, html { 
@@ -11,7 +11,7 @@
       padding: 0; 
       width: 100%; 
       height: 100%; 
-      background-color: #db9e26; /* Your specific orange/yellow */
+      background-color: #179e40; /* Swapped: Your specific green */
       overflow: hidden; 
       font-family: 'Arial Black', Impact, sans-serif; 
     }
@@ -29,8 +29,8 @@
     }
     .stripe { width: 100%; flex: 1; }
     .stripe-darkred { background-color: #8c1025; }
-    .stripe-yellow { background-color: #e6d649; flex: 2.5; }
-    .stripe-green { background-color: #179e40; }
+    .stripe-orange { background-color: #db9e26; flex: 2.5; } /* Swapped: Your orange */
+    .stripe-yellow { background-color: #e6d649; }
     .stripe-blue { background-color: #5eb4cd; }
     .stripe-pink { background-color: #c93f8e; }
     
@@ -50,19 +50,19 @@
       font-size: 3vh; 
       font-weight: 900; 
       letter-spacing: 2px; 
-      color: #179e40; /* Your specific green */
+      color: #db9e26; /* Your specific orange */
       transition: transform 0.1s linear; 
       display: flex; 
       align-items: center; 
     }
     
-    /* Green hover box logic */
+    /* Orange hover box logic */
     .nav-buttons a::before { 
       content: ''; 
       display: inline-block; 
       width: 1.5vh; 
       height: 3vh; 
-      background-color: #179e40; 
+      background-color: #db9e26; 
       margin-right: 12px; 
       opacity: 0; 
     }
@@ -82,8 +82,8 @@
     h1 {
       font-size: 8vh;
       margin: 0;
-      line-height: 0.9;
-      color: #179e40; /* Your specific green */
+      line-height: 0.85; 
+      color: #db9e26; /* Your specific orange */
       text-transform: uppercase;
       letter-spacing: 2px;
     }
@@ -93,13 +93,13 @@
 <body>
   
   <div class="content-area">
-    <h1>DIRECTOR'S <br> CUT</h1>
+    <h1>COMING <br> SOON</h1>
     </div>
 
   <div class="bg-stripes">
     <div class="stripe stripe-darkred"></div>
+    <div class="stripe stripe-orange"></div>
     <div class="stripe stripe-yellow"></div>
-    <div class="stripe stripe-green"></div>
     <div class="stripe stripe-blue"></div>
     <div class="stripe stripe-pink"></div>
   </div>
