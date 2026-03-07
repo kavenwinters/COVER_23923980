@@ -24,18 +24,6 @@
       height: 100vh; 
       z-index: 1; 
     }
-
-    /* Student ID for Links Application Compliance */
-    .sid-display {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 1.8vh;
-      font-weight: 900;
-      z-index: 10;
-      letter-spacing: 1px;
-    }
     
     .nav-buttons { 
       position: absolute; 
@@ -73,21 +61,21 @@
     
     .nav-buttons a:hover::before { opacity: 1; }
 
-    /* Content Area for the Big Title */
+    /* Content Area */
     .content-area {
       position: absolute;
       top: 15vh;
       left: 10vw;
-      width: 80vw;
+      width: 30vw; /* Constrains the width to keep it in the red block */
       color: white;
       z-index: 2;
     }
 
     h1 {
-      font-size: 8vh;
+      font-size: 7vh;
       margin: 0;
-      line-height: 0.9;
-      color: #e6d649; /* Blocky Yellow Title */
+      line-height: 0.85; /* Tight stacking for the film look */
+      color: #e6d649; 
       text-transform: uppercase;
       letter-spacing: 2px;
     }
@@ -95,10 +83,8 @@
 </head>
 <body>
 
-  <div class="sid-display">SID# [YOUR ID HERE]</div>
-
   <div class="content-area">
-    <h1>BEHIND THE SCENES</h1>
+    <h1>BEHIND THE <br> SCENES</h1>
     </div>
   
   <svg class="bg-stripes" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
