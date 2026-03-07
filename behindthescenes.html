@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Special Features</title>
+  <title>Behind the Scenes</title>
   <style>
     * { box-sizing: border-box; }
     body, html { 
@@ -23,6 +23,18 @@
       width: 100vw; 
       height: 100vh; 
       z-index: 1; 
+    }
+
+    /* Student ID for Links Application Compliance */
+    .sid-display {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1.8vh;
+      font-weight: 900;
+      z-index: 10;
+      letter-spacing: 1px;
     }
     
     .nav-buttons { 
@@ -49,7 +61,6 @@
     
     .nav-buttons a:hover { transform: translateX(1.5vw); }
 
-    /* Green DVD-style hover box */
     .nav-buttons a::before { 
       content: ''; 
       display: inline-block; 
@@ -61,38 +72,46 @@
     }
     
     .nav-buttons a:hover::before { opacity: 1; }
+
+    /* Content Area for the Big Title */
+    .content-area {
+      position: absolute;
+      top: 15vh;
+      left: 10vw;
+      width: 80vw;
+      color: white;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 8vh;
+      margin: 0;
+      line-height: 0.9;
+      color: #e6d649; /* Blocky Yellow Title */
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
   </style>
 </head>
 <body>
+
+  <div class="sid-display">SID# [YOUR ID HERE]</div>
+
+  <div class="content-area">
+    <h1>BEHIND THE SCENES</h1>
+    </div>
   
   <svg class="bg-stripes" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
-    
     <rect width="1000" height="1000" fill="#c93f8e" />
-
     <rect x="0" y="0" width="450" height="700" fill="#8c1025" />
-
     <rect x="0" y="700" width="450" height="26" fill="#e6d649" />
     <rect x="0" y="726" width="450" height="26" fill="#179e40" />
     <rect x="0" y="752" width="450" height="26" fill="#5eb4cd" />
-
-    <path d="M 437,0 
-             L 880,0 
-             L 880,600 
-             A 500 500 0 0 1 380,1100 
-             L -100,1100 
-             L 107,1240 
-             L 407,840 
-             Q 437,800 437,778 
-             L 437,0 Z" 
-          fill="#179e40"/>
-
+    <path d="M 437,0 L 880,0 L 880,600 A 500 500 0 0 1 380,1100 L 0,1100 L 287,1000 L 407,840 Q 437,800 437,778 L 437,0 Z" fill="#179e40"/>
     <path d="M 437,0 L 437,778 Q 437,800 407,840 L 107,1240" fill="none" stroke="#e6d649" stroke-width="26" />
-
     <path d="M 880,0 L 880,600 A 500 500 0 0 1 380,1100" fill="none" stroke="#179e40" stroke-width="32" />
-
     <path d="M 906,0 L 906,600 A 526 526 0 0 1 380,1126" fill="none" stroke="#179e40" stroke-width="26" />
     <path d="M 932,0 L 932,600 A 552 552 0 0 1 380,1152" fill="none" stroke="#5eb4cd" stroke-width="26" />
-
   </svg>
 
   <div class="nav-buttons">
