@@ -69,30 +69,37 @@
       width: 80vw;
       z-index: 2;
       display: flex; 
-      gap: 5vw; /* Forces a hard 5% gap between the title and the text */
+      gap: 5vw; 
       align-items: flex-start;
     }
 
     h1 {
       font-size: 7vh;
       margin: 0;
-      line-height: 0.85; /* Tight stacking for the film look */
+      line-height: 0.85; 
       color: #e6d649; 
       text-transform: uppercase;
       letter-spacing: 2px;
-      width: 35vw; /* HARD LOCK: Keeps title strictly in the dark red */
+      width: 35vw; 
       flex-shrink: 0;
     }
 
-    /* New blocky text section locked safely inside the green area */
+    /* Blocky text section formatted as a tracklist/feature list */
     .bts-text {
-      width: 30vw; /* Thinned out so it fits securely in the green */
-      font-size: 1.8vh; 
-      line-height: 1.5;
-      color: #e6d649; /* Matches the yellow title */
+      width: 30vw; 
+      font-size: 1.55vh; /* Slightly smaller to fit all 4 categories comfortably */
+      line-height: 1.3;
+      color: #e6d649; 
       text-transform: uppercase;
       letter-spacing: 1px;
-      text-align: justify;
+      text-align: left; /* Switched to left for the list format */
+    }
+
+    .hobby-header {
+      display: block;
+      margin-top: 1.5vh;
+      text-decoration: underline;
+      font-size: 1.8vh;
     }
   </style>
 </head>
@@ -101,7 +108,19 @@
   <div class="content-area">
     <h1>BEHIND THE <br> SCENES</h1>
     <div class="bts-text">
-      LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT. SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT. DUIS AUTE IRURE DOLOR IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR. EXCEPTEUR SINT OCCAECAT CUPIDATAT NON PROIDENT, SUNT IN CULPA QUI OFFICIA DESERUNT MOLLIT ANIM ID EST LABORUM.
+      HERE ARE THE THINGS I ENJOY OUTSIDE OF SCHOOL.
+      <br>
+      <span class="hobby-header">HIKING</span>
+      COMING FROM THE PNW, I HAVE HAD THE PRIVILEGE TO EXPLORE A FRACTION OF WHAT THE GREAT NORTHWEST HAS TO OFFER. MY FAVORITE SPOT I'VE BEEN TO IS CAMP MUIR, THE MT RAINIER SUMMIT BASE CAMP.
+      <br>
+      <span class="hobby-header">SPIKEBALL</span>
+      SOME OF MY FAVORITE MEMORIES FROM BACK HOME INCLUDE HIKING OUT TO THE WATERFALL DOWN HANKIN RD AND PLAYING ENDLESS GAMES OF SPIKEBALL WITH MY CLOSEST FRIENDS.
+      <br>
+      <span class="hobby-header">GUITAR</span>
+      WHENEVER I'M FEELING THE STRESS OF SCHOOL OR LIFE, MY SIX-STRING HAS ALWAYS HAD MY BACK.
+      <br>
+      <span class="hobby-header">SPORTS</span>
+      I GREW UP PLAYING BASEBALL AND BASKETBALL, AND HAVE CONTINUED PLAYING THE INTRAMURALS THAT THE U OF A HAS TO OFFER. I AM ALWAYS SURPRISED BY THE INFINITE LESSONS YOU CAN LEARN THROUGH COMPETITION.
     </div>
   </div>
   
