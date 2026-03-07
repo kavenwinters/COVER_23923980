@@ -61,7 +61,6 @@
     
     .nav-buttons a:hover::before { opacity: 1; }
 
-    /* Updated Content Area for strict side-by-side layout */
     .content-area {
       position: absolute;
       top: 15vh;
@@ -69,7 +68,7 @@
       width: 80vw;
       z-index: 2;
       display: flex; 
-      gap: 5vw; /* Forces a hard 5% gap between the title and the text */
+      gap: 5vw; 
       align-items: flex-start;
     }
 
@@ -77,22 +76,21 @@
       font-size: 8vh;
       margin: 0;
       line-height: 0.9;
-      color: #e6d649; /* Blocky Yellow Title */
+      color: #e6d649; 
       text-transform: uppercase;
       letter-spacing: 2px;
-      width: 35vw; /* Keeps title strictly inside the orange box */
-      flex-shrink: 0; /* Prevents the text from squishing the title */
+      width: 35vw; 
+      flex-shrink: 0; 
     }
 
-    /* New blocky text section locked safely inside the red area */
     .soundtrack-text {
-      width: 30vw; /* Thinned out so it avoids the right-side curves completely */
-      font-size: 1.8vh; 
-      line-height: 1.5;
-      color: #e6d649; /* Same yellow as the title */
+      width: 30vw; 
+      font-size: 1.7vh; /* Slightly smaller to ensure all 25 artists fit vertically */
+      line-height: 1.3;
+      color: #e6d649; 
       text-transform: uppercase;
       letter-spacing: 1px;
-      text-align: justify;
+      text-align: left; /* Switched from justify for a better list look */
     }
   </style>
 </head>
@@ -101,7 +99,33 @@
   <div class="content-area">
     <h1>SOUNDTRACK</h1>
     <div class="soundtrack-text">
-      You can tell a lot about someone based on thier music taste. Mine is diverse to say the least. Here are my top 25 artits in no particular order: Willie Nelson, Jack Johnson, Mac DeMarco, Tyler Childers, Fleetwood Mac, Billy Strings, Rihanna, Bob Dylan, Toby Keith, Jim Croce, Garth Brooks, Zach Top, ABBA, Sublime, Treaty Oak Revival, Flatland Cavalry, Kesha, John Denver, Grateful Dead, Jimmy Buffett, Dire Straits, Steely Dan, Green Day, The Marshall Tucker Band, and Alan Jackson.
+      You can tell a lot about someone based on their music taste. Mine is diverse to say the least. Here are my top 25 artists in no particular order:
+      <br><br>
+      Willie Nelson<br>
+      Jack Johnson<br>
+      Mac DeMarco<br>
+      Tyler Childers<br>
+      Fleetwood Mac<br>
+      Billy Strings<br>
+      Rihanna<br>
+      Bob Dylan<br>
+      Toby Keith<br>
+      Jim Croce<br>
+      Garth Brooks<br>
+      Zach Top<br>
+      ABBA<br>
+      Sublime<br>
+      Treaty Oak Revival<br>
+      Flatland Cavalry<br>
+      Kesha<br>
+      John Denver<br>
+      Grateful Dead<br>
+      Jimmy Buffett<br>
+      Dire Straits<br>
+      Steely Dan<br>
+      Green Day<br>
+      The Marshall Tucker Band<br>
+      Alan Jackson
     </div>
   </div>
 
