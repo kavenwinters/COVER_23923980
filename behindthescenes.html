@@ -61,14 +61,16 @@
     
     .nav-buttons a:hover::before { opacity: 1; }
 
-    /* Content Area */
+    /* Updated Content Area for strict side-by-side layout */
     .content-area {
       position: absolute;
       top: 15vh;
       left: 10vw;
-      width: 30vw; /* Constrains the width to keep it in the red block */
-      color: white;
+      width: 80vw;
       z-index: 2;
+      display: flex; 
+      gap: 5vw; /* Forces a hard 5% gap between the title and the text */
+      align-items: flex-start;
     }
 
     h1 {
@@ -78,6 +80,19 @@
       color: #e6d649; 
       text-transform: uppercase;
       letter-spacing: 2px;
+      width: 35vw; /* HARD LOCK: Keeps title strictly in the dark red */
+      flex-shrink: 0;
+    }
+
+    /* New blocky text section locked safely inside the green area */
+    .bts-text {
+      width: 30vw; /* Thinned out so it fits securely in the green */
+      font-size: 1.8vh; 
+      line-height: 1.5;
+      color: #e6d649; /* Matches the yellow title */
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-align: justify;
     }
   </style>
 </head>
@@ -85,7 +100,10 @@
 
   <div class="content-area">
     <h1>BEHIND THE <br> SCENES</h1>
+    <div class="bts-text">
+      LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT. SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT. DUIS AUTE IRURE DOLOR IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR. EXCEPTEUR SINT OCCAECAT CUPIDATAT NON PROIDENT, SUNT IN CULPA QUI OFFICIA DESERUNT MOLLIT ANIM ID EST LABORUM.
     </div>
+  </div>
   
   <svg class="bg-stripes" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
     <rect width="1000" height="1000" fill="#c93f8e" />
