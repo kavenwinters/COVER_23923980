@@ -24,18 +24,6 @@
       height: 100vh; 
       z-index: 1; 
     }
-    
-    /* Student ID for Links Application Compliance */
-    .sid-display {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 1.8vh;
-      font-weight: 900;
-      z-index: 10;
-      letter-spacing: 1px;
-    }
 
     .nav-buttons { 
       position: absolute; 
@@ -73,14 +61,16 @@
     
     .nav-buttons a:hover::before { opacity: 1; }
 
-    /* Content Area for the Big Title */
+    /* Updated Content Area for side-by-side layout */
     .content-area {
       position: absolute;
       top: 15vh;
       left: 10vw;
       width: 80vw;
-      color: white;
       z-index: 2;
+      display: flex; /* Enables the split layout */
+      justify-content: space-between;
+      align-items: flex-start;
     }
 
     h1 {
@@ -90,16 +80,31 @@
       color: #e6d649; /* Blocky Yellow Title */
       text-transform: uppercase;
       letter-spacing: 2px;
+      flex: 1; /* Keeps title on the left */
+    }
+
+    /* New blocky text section for the red area */
+    .soundtrack-text {
+      flex: 1; /* Pushes text to the right side */
+      font-size: 1.8vh; /* Smaller font size */
+      line-height: 1.5;
+      color: #e6d649; /* Same yellow as the title */
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding-left: 2vw;
+      padding-right: 2vw; /* Keeps it comfortably inside the red shape */
+      text-align: justify;
     }
   </style>
 </head>
 <body>
-  
-  <div class="sid-display">SID# [YOUR ID HERE]</div>
 
   <div class="content-area">
     <h1>SOUNDTRACK</h1>
+    <div class="soundtrack-text">
+      LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT. SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT. DUIS AUTE IRURE DOLOR IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR. EXCEPTEUR SINT OCCAECAT CUPIDATAT NON PROIDENT, SUNT IN CULPA QUI OFFICIA DESERUNT MOLLIT ANIM ID EST LABORUM.
     </div>
+  </div>
 
   <svg class="bg-stripes" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
     <rect width="1000" height="1000" fill="#c93f8e" />
