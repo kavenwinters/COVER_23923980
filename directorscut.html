@@ -70,13 +70,16 @@
     .nav-buttons a:hover { transform: translateY(-5px); }
     .nav-buttons a:hover::before { opacity: 1; }
 
-    /* Content Area */
+    /* Content Area - Adjusted for side-by-side layout */
     .content-area {
       position: absolute;
       top: 15vh;
       left: 10vw;
       width: 80vw;
       z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
     }
 
     h1 {
@@ -86,6 +89,19 @@
       color: #179e40; /* Your specific green */
       text-transform: uppercase;
       letter-spacing: 2px;
+      flex: 1; /* Title takes the left half */
+    }
+
+    /* New blocky text section */
+    .essay-text {
+      flex: 1; /* Text takes the right half */
+      font-size: 1.8vh; /* Smaller font size for body text */
+      line-height: 1.5;
+      color: #179e40;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding-left: 5vw;
+      text-align: justify;
     }
 
   </style>
@@ -94,7 +110,10 @@
   
   <div class="content-area">
     <h1>DIRECTOR'S <br> CUT</h1>
+    <div class="essay-text">
+      THIS IS WHERE YOUR MAIN MISSION STATEMENT GOES. LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA COMMODO CONSEQUAT. DUIS AUTE IRURE DOLOR IN REPREHENDERIT IN VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR. EXCEPTEUR SINT OCCAECAT CUPIDATAT NON PROIDENT, SUNT IN CULPA QUI OFFICIA DESERUNT MOLLIT ANIM ID EST LABORUM.
     </div>
+  </div>
 
   <div class="bg-stripes">
     <div class="stripe stripe-darkred"></div>
