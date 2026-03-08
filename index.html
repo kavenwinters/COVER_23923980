@@ -29,16 +29,16 @@
       z-index: 1;
     }
 
-    /* The Dancer Video - Final Placement & Scaling */
+/* The Dancer Video - Horizontal Adjustment */
     #dancer-video {
       position: absolute;
-      bottom: 5vh;      /* Feet stay near the stripe curve */
-      left: 8vw;       /* Pushed to the left side */
-      width: 48vw;      /* Reduced size to match the original DVD framing */
+      bottom: 5vh;      /* Keeps the vertical level exactly where it is */
+      left: 28vw;      /* Pushed right (was 8vw) to sit closer to the text */
+      width: 48vw;      
       height: 90vh;     
-      object-fit: contain; /* Keeps your silhouette from getting cropped */
+      object-fit: contain; 
       z-index: 2; 
-      mix-blend-mode: multiply; /* Melts the white background away */
+      mix-blend-mode: multiply; 
       pointer-events: none; 
       animation: fadeIn 1.2s ease-in;
     }
