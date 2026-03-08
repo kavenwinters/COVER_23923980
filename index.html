@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Superbad DVD Menu</title>
@@ -17,7 +19,7 @@
       font-family: 'Arial Black', Impact, sans-serif;
     }
 
-    /* SVG Background */
+    /* SVG Background - Layer 1 */
     .bg-stripes {
       position: absolute;
       top: 0;
@@ -27,7 +29,20 @@
       z-index: 1;
     }
 
-    /* Container for the menu buttons */
+    /* The Dancer Video - Layer 2 (On top of stripes, under buttons) */
+    #dancer-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: 2; 
+      mix-blend-mode: multiply; /* Melts the white background away */
+      pointer-events: none; /* Allows clicks to pass through to buttons */
+    }
+
+    /* Container for the menu buttons - Layer 3 */
     .menu-item {
       position: absolute;
       right: 0;
@@ -36,7 +51,7 @@
       align-items: center;
       justify-content: flex-end;
       padding-right: 12vw; 
-      z-index: 2;
+      z-index: 3;
     }
 
     .menu-item a {
@@ -50,16 +65,15 @@
       transition: transform 0.1s linear; 
     }
 
-    /* The DVD Cursor Box - Now Green to match the application theme */
-.menu-item a::after {
-  content: '';
-  display: inline-block;
-  width: 1.5vh;
-  height: 3vh;
-  background-color: #f36c00; /* Now it matches the background orange */
-  margin-left: 12px;
-  opacity: 0; 
-}
+    .menu-item a::after {
+      content: '';
+      display: inline-block;
+      width: 1.5vh;
+      height: 3vh;
+      background-color: #f36c00; 
+      margin-left: 12px;
+      opacity: 0; 
+    }
 
     .menu-item a:hover {
       transform: translateX(-1.5vw); 
@@ -76,15 +90,7 @@
     .text-brown { color: #b56056; }
     .text-green { color: #6eb981; }
 
-    .video-container {
-      position: absolute;
-      top: 15%;
-      left: 20%;
-      height: 60vh;
-      z-index: 5;
-    }
-
-    /* Student ID Display for Compliance [cite: 56, 85] */
+    /* Student ID Display - Top Layer */
     .sid-display {
       position: absolute;
       top: 20px;
@@ -93,9 +99,15 @@
       font-size: 1.8vh;
       z-index: 10;
     }
-  </style></head><body>
+  </style>
+</head>
+<body>
 
   <div class="sid-display">23923980</div>
+
+  <video id="dancer-video" autoplay muted loop playsinline>
+    <source src="dance.mp4" type="video/mp4">
+  </video>
 
   <svg class="bg-stripes" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
     <path d="M 0,500 Q 300,800 400,800 L 1000,800 L 1000,1000 L 0,1000 Z" fill="#c93f8e"/>
@@ -109,7 +121,7 @@
   </svg>
 
   <div class="menu-item" style="top: 60vh; height: 5vh;">
-    <a href="directorscut" class="text-white">DIRECTOR'S CUT</a>
+    <a href="directorscut.html" class="text-white">DIRECTOR'S CUT</a>
   </div>
   
   <div class="menu-item" style="top: 65vh; height: 5vh;">
@@ -128,5 +140,5 @@
     <a href="comingsoon.html" class="text-green">COMING SOON</a>
   </div>
 
-  <div class="video-container">
-    </div></body></html>
+</body>
+</html>
