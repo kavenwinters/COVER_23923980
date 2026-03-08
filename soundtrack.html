@@ -11,7 +11,7 @@
       padding: 0; 
       width: 100%; 
       height: 100%; 
-      background-color: #c93f8e; /* Base Pink */
+      background-color: #c93f8e; 
       overflow: hidden; 
       font-family: 'Arial Black', Impact, sans-serif; 
     }
@@ -25,11 +25,31 @@
       z-index: 1; 
     }
 
+    /* The Dancer Video - Centered */
+    #dancer-video {
+      position: absolute;
+      bottom: 5vh;      
+      left: 50%;        
+      transform: translateX(-50%); 
+      width: 48vw;      
+      height: 90vh;     
+      object-fit: contain; 
+      z-index: 2;       
+      mix-blend-mode: multiply; 
+      pointer-events: none; 
+      animation: fadeIn 1.2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
     .nav-buttons { 
       position: absolute; 
       bottom: 12vh; 
       left: 15vw; 
-      z-index: 2; 
+      z-index: 3; 
       display: flex; 
       flex-direction: column; 
       gap: 1.5vh; 
@@ -66,7 +86,7 @@
       top: 15vh;
       left: 10vw;
       width: 80vw;
-      z-index: 2;
+      z-index: 3;
       display: flex; 
       gap: 5vw; 
       align-items: flex-start;
@@ -85,16 +105,21 @@
 
     .soundtrack-text {
       width: 30vw; 
-      font-size: 1.7vh; /* Slightly smaller to ensure all 25 artists fit vertically */
+      font-size: 1.7vh; 
       line-height: 1.3;
       color: #e6d649; 
       text-transform: uppercase;
       letter-spacing: 1px;
-      text-align: left; /* Switched from justify for a better list look */
+      text-align: left; 
     }
   </style>
 </head>
 <body>
+
+  <video id="dancer-video" autoplay muted loop playsinline>
+    <source src="dance.mp4" type="video/mp4">
+  </video>
+  <script>document.getElementById('dancer-video').currentTime = 3;</script>
 
   <div class="content-area">
     <h1>SOUNDTRACK</h1>
