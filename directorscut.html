@@ -34,15 +34,16 @@
     .stripe-blue { background-color: #5eb4cd; }
     .stripe-pink { background-color: #c93f8e; }
 
-    /* The Dancer Video - Centered */
+/* The Dancer Video - Grounded to Stripes */
     #dancer-video {
       position: absolute;
-      bottom: 2vh;      
+      bottom: 0vh;      /* Use this as your fine-tuning knob */
       left: 60%;        
       transform: translateX(-50%); 
       width: 48vw;      
       height: 90vh;     
       object-fit: contain; 
+      object-position: bottom; /* Forces the video to sit flush at the bottom */
       z-index: 2;       
       mix-blend-mode: multiply; 
       pointer-events: none; 
