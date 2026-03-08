@@ -29,17 +29,23 @@
       z-index: 1;
     }
 
-    /* The Dancer Video - Layer 2 (On top of stripes, under buttons) */
+    /* The Dancer Video - Final Placement & Scaling */
     #dancer-video {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
+      bottom: 5vh;      /* Feet stay near the stripe curve */
+      left: 8vw;       /* Pushed to the left side */
+      width: 48vw;      /* Reduced size to match the original DVD framing */
+      height: 90vh;     
+      object-fit: contain; /* Keeps your silhouette from getting cropped */
       z-index: 2; 
       mix-blend-mode: multiply; /* Melts the white background away */
-      pointer-events: none; /* Allows clicks to pass through to buttons */
+      pointer-events: none; 
+      animation: fadeIn 1.2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     /* Container for the menu buttons - Layer 3 */
