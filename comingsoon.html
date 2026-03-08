@@ -11,12 +11,11 @@
       padding: 0; 
       width: 100%; 
       height: 100%; 
-      background-color: #c93f8e; /* Superbad PINK - consistent with the stripe set */
+      background-color: #c93f8e; 
       overflow: hidden; 
       font-family: 'Arial Black', Impact, sans-serif; 
     }
     
-    /* Horizontal stripes hugging the bottom */
     .bg-stripes { 
       position: absolute; 
       bottom: 0; 
@@ -32,14 +31,33 @@
     .stripe-yellow { background-color: #e6d649; flex: 2.5; }
     .stripe-green { background-color: #179e40; }
     .stripe-orange { background-color: #db9e26; }
-    .stripe-pink { background-color: #5eb4cd; } /* Actually blue now */
+    .stripe-pink { background-color: #5eb4cd; } 
+
+    /* The Dancer Video - Centered */
+    #dancer-video {
+      position: absolute;
+      bottom: 5vh;      
+      left: 50%;        
+      transform: translateX(-50%); 
+      width: 48vw;      
+      height: 90vh;     
+      object-fit: contain; 
+      z-index: 2;       
+      mix-blend-mode: multiply; 
+      pointer-events: none; 
+      animation: fadeIn 1.2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
     
-    /* Navigation buttons sitting above the stripes */
     .nav-buttons { 
       position: absolute; 
       bottom: 16vh; 
       left: 10vw; 
-      z-index: 2; 
+      z-index: 3; 
       display: flex; 
       flex-direction: row; 
       gap: 4vw; 
@@ -50,13 +68,12 @@
       font-size: 3vh; 
       font-weight: 900; 
       letter-spacing: 2px; 
-      color: #6eb981; /* Yellow Nav to match the title */
+      color: #6eb981; 
       transition: transform 0.1s linear; 
       display: flex; 
       align-items: center; 
     }
     
-    /* Green hover box logic */
     .nav-buttons a::before { 
       content: ''; 
       display: inline-block; 
@@ -70,13 +87,12 @@
     .nav-buttons a:hover { transform: translateY(-5px); }
     .nav-buttons a:hover::before { opacity: 1; }
 
-    /* Content Area - Adjusted for side-by-side layout */
     .content-area {
       position: absolute;
       top: 15vh;
       left: 10vw;
       width: 80vw;
-      z-index: 2;
+      z-index: 3;
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
@@ -86,18 +102,17 @@
       font-size: 8vh;
       margin: 0;
       line-height: 0.85; 
-      color: #e6d649; /* Yellow Title */
+      color: #e6d649; 
       text-transform: uppercase;
       letter-spacing: 2px;
-      flex: 1; /* Title takes the left half */
+      flex: 1; 
     }
 
-    /* New blocky text section */
     .essay-text {
-      flex: 1; /* Text takes the right half */
+      flex: 1; 
       font-size: 2.0vh; 
       line-height: 1.5;
-      color: #e6d649; /* Yellow to match title */
+      color: #e6d649; 
       text-transform: uppercase;
       letter-spacing: 1px;
       padding-left: 5vw;
@@ -108,6 +123,11 @@
 </head>
 <body>
   
+  <video id="dancer-video" autoplay muted loop playsinline>
+    <source src="dance.mp4" type="video/mp4">
+  </video>
+  <script>document.getElementById('dancer-video').currentTime = 12;</script>
+
   <div class="content-area">
     <h1>COMING <br> SOON</h1>
     <div class="essay-text">
