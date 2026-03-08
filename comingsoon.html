@@ -33,15 +33,16 @@
     .stripe-orange { background-color: #db9e26; }
     .stripe-pink { background-color: #5eb4cd; } 
 
-    /* The Dancer Video - Centered */
+/* The Dancer Video - Grounded to Stripes */
     #dancer-video {
       position: absolute;
-      bottom: 5vh;      
-      left: 50%;        
+      bottom: -20vh;      /* Use this as your fine-tuning knob */
+      left: 70%;        
       transform: translateX(-50%); 
       width: 48vw;      
       height: 90vh;     
       object-fit: contain; 
+      object-position: bottom; /* Forces the video to sit flush at the bottom */
       z-index: 2;       
       mix-blend-mode: multiply; 
       pointer-events: none; 
@@ -126,7 +127,7 @@
   <video id="dancer-video" autoplay muted loop playsinline>
     <source src="dance.mp4" type="video/mp4">
   </video>
-  <script>document.getElementById('dancer-video').currentTime = 12;</script>
+  <script>document.getElementById('dancer-video').currentTime = 175;</script>
 
   <div class="content-area">
     <h1>COMING <br> SOON</h1>
