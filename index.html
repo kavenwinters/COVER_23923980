@@ -29,28 +29,16 @@
       z-index: 1;
     }
 
-/* The Dancer Video - Fully Solid / Opaque */
+/* The Dancer Video - Horizontal Adjustment */
     #dancer-video {
       position: absolute;
-      bottom: 5vh;      
-      left: 28vw;      
+      bottom: 5vh;      /* Keeps the vertical level exactly where it is */
+      left: 28vw;      /* Pushed right (was 8vw) to sit closer to the text */
       width: 48vw;      
       height: 90vh;     
       object-fit: contain; 
       z-index: 2; 
-
-      /* 1. Remove Multiply (the cause of the "seethrough" look) */
-      /* 2. Use 'screen' blend mode instead */
-      mix-blend-mode: screen; 
-
-      /* 3. The Filter Sequence: 
-         - Invert(1) turns your white background black (which 'screen' makes invisible)
-         - Invert(1) also turns your blue silhouette white/orange
-         - Contrast(10) and Brightness(1.5) make the dancer a solid, flat color block */
-      filter: invert(1) contrast(10) brightness(1.5) hue-rotate(180deg);
-      -webkit-filter: invert(1) contrast(10) brightness(1.5) hue-rotate(180deg);
-      
-      opacity: 1; /* Ensures the element itself is at full strength */
+      mix-blend-mode: multiply; 
       pointer-events: none; 
       animation: fadeIn 1.2s ease-in;
     }
