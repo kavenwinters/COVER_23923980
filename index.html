@@ -29,7 +29,7 @@
       z-index: 1;
     }
 
-/* The Dancer Video - Horizontal Adjustment */
+    /* The Dancer Video - Horizontal Adjustment */
     #dancer-video {
       position: absolute;
       bottom: 5vh;      /* Keeps the vertical level exactly where it is */
@@ -77,74 +77,4 @@
       width: 1.5vh;
       height: 3vh;
       background-color: #f36c00; 
-      margin-left: 12px;
-      opacity: 0; 
-    }
-
-    .menu-item a:hover {
-      transform: translateX(-1.5vw); 
-    }
-
-    .menu-item a:hover::after {
-      opacity: 1; 
-    }
-
-    /* Exact Text Colors */
-    .text-white { color: #ffffff; }
-    .text-blue  { color: #0d2459; }
-    .text-purple{ color: #a65d9d; }
-    .text-brown { color: #b56056; }
-    .text-green { color: #6eb981; }
-
-    /* Student ID Display - Top Layer */
-    .sid-display {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      color: rgba(255, 255, 255, 0.5);
-      font-size: 1.8vh;
-      z-index: 10;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="sid-display">23923980</div>
-
-  <video id="dancer-video" autoplay muted loop playsinline>
-    <source src="dance.mp4" type="video/mp4">
-  </video>
-
-  <svg class="bg-stripes" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
-    <path d="M 0,500 Q 300,800 400,800 L 1000,800 L 1000,1000 L 0,1000 Z" fill="#c93f8e"/>
-    <g fill="none" stroke-width="50">
-       <path d="M -50,325 Q 250,625 400,625 L 1050,625" stroke="#8c1025" />
-       <path d="M -50,375 Q 250,675 400,675 L 1050,675" stroke="#e6d649" />
-       <path d="M -50,425 Q 250,725 400,725 L 1050,725" stroke="#179e40" />
-       <path d="M -50,475 Q 250,775 400,775 L 1050,775" stroke="#5eb4cd" />
-       <path d="M -50,525 Q 250,825 400,825 L 1050,825" stroke="#c93f8e" />
-    </g>
-  </svg>
-
-  <div class="menu-item" style="top: 60vh; height: 5vh;">
-    <a href="directorscut.html" class="text-white">DIRECTOR'S CUT</a>
-  </div>
-  
-  <div class="menu-item" style="top: 65vh; height: 5vh;">
-    <a href="soundtrack.html" class="text-blue">SOUNDTRACK</a>
-  </div>
-  
-  <div class="menu-item" style="top: 70vh; height: 5vh;">
-    <a href="backstory.html" class="text-purple">BACKSTORY</a>
-  </div>
-  
-  <div class="menu-item" style="top: 75vh; height: 5vh;">
-    <a href="behindthescenes.html" class="text-brown">BEHIND THE SCENES</a>
-  </div>
-  
-  <div class="menu-item" style="top: 80vh; height: 5vh;">
-    <a href="comingsoon.html" class="text-green">COMING SOON</a>
-  </div>
-
-</body>
-</html>
+      margin-left: 1
